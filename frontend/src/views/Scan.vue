@@ -3,7 +3,7 @@
     <v-layout row wrap align-center>
       <v-flex>
         <v-btn
-          id="start-scan"
+          data-cy="start-scan-button"
           v-if="!scanning"
           block
           large
@@ -13,9 +13,19 @@
         >
 
         <div v-if="scanning">
-          <p class="error">{{ error }}</p>
-          <qrcode-stream @decode="onDecode" @init="onInit" id="QRcamera" />
+          <p data-cy="scan-cam-error" class="error">{{ error }}</p>
+          <qrcode-stream data-cy="qr-cam-stream" @decode="onDecode" @init="onInit" id="QRcamera" />
+
+          <v-btn
+            data-cy="stop-scan-button"
+            block
+            large
+            color="error"
+            v-on:click.native="scanning = false"
+            >Stop</v-btn
+          >
         </div>
+
       </v-flex>
     </v-layout>
   </v-container>
