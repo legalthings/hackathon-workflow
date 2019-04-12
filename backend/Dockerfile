@@ -1,14 +1,26 @@
-FROM node:8-alpine
+FROM alpine:3.4
 
-EXPOSE 3000
+# File Author / Maintainer
+LABEL authors="Zouhir Chahoud <zouhir@zouhir.org>"
 
-ARG NODE_ENV
-ENV NODE_ENV $NODE_ENV
+# Update & install required packages
+RUN apk add --update nodejs bash git
 
-RUN mkdir /app
-WORKDIR /app
-ADD package.json yarn.lock /app/
-RUN yarn --pure-lockfile
-ADD . /app
+# Install app dependencies
+COPY package.json /www/package.json
+RUN cd /www; npm install
 
-CMD ["yarn", "docker:start"]
+# Copy app source
+COPY . /www
+
+# Set work directory to /www
+WORKDIR /www
+
+# set your port
+ENV PORT 8080
+
+# expose the port to outside world
+EXPOSE  8080
+
+# start command as per package.json
+CMD ["npm", "start"]

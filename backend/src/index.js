@@ -1,18 +1,40 @@
-// make bluebird default Promise
-Promise = require('bluebird'); // eslint-disable-line no-global-assign
-const { port, env } = require('./config/vars');
-const logger = require('./config/logger');
-const app = require('./config/express');
-const mongoose = require('./config/mongoose');
+import http from 'http';
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import bodyParser from 'body-parser';
+import initializeDb from './db';
+import middleware from './middleware';
+import api from './api';
+import config from './config.json';
 
-// open mongoose connection
-mongoose.connect();
+let app = express();
+app.server = http.createServer(app);
 
-// listen to requests
-app.listen(port, () => logger.info(`server started on port ${port} (${env})`));
+// logger
+app.use(morgan('dev'));
 
-/**
-* Exports express
-* @public
-*/
-module.exports = app;
+// 3rd party middleware
+app.use(cors({
+	exposedHeaders: config.corsHeaders
+}));
+
+app.use(bodyParser.json({
+	limit : config.bodyLimit
+}));
+
+// connect to db
+initializeDb( db => {
+
+	// internal middleware
+	app.use(middleware({ config, db }));
+
+	// api router
+	app.use('/api', api({ config, db }));
+
+	app.server.listen(process.env.PORT || config.port, () => {
+		console.log(`Started on port ${app.server.address().port}`);
+	});
+});
+
+export default app;
