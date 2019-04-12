@@ -1,14 +1,5 @@
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>LTO</span>
-        <span class="font-weight-light"> Scanner</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn flat href="" target="_blank"> </v-btn>
-    </v-toolbar>
-
+  <v-app class="body-bg">
     <v-content>
       <router-view />
     </v-content>
@@ -24,3 +15,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.body-bg {
+  background-image: linear-gradient(-90deg, #7daef4 0%, #4776e6 100%);
+}
+</style>

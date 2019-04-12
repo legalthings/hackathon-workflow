@@ -1,38 +1,90 @@
 <template>
-  <v-container bg fill-height grid-list-md text-xs-center>
-    <v-layout row wrap align-center>
-      <v-flex>
-        <v-btn
-          data-cy="start-scan-button"
-          v-if="!scanning"
-          block
-          large
-          color="info"
-          v-on:click.native="scanning = true"
-          >Scan QR</v-btn
-        >
+  <div>
+    <v-container v-if="!scanning" fill-height grid-list-md text-xs-center>
+      <v-layout row wrap>
+        <v-flex class="xs12">
+          <v-container>
+            <v-layout justify-center>
+              <v-flex class="xs12 md6 lg4">
+                <v-img
+                  contain
+                  class="logo"
+                  width="100%"
+                  :src="require('../assets/foodflow-huge.png')"
+                />
+              </v-flex>
+            </v-layout>
+          </v-container>
 
-        <div v-if="scanning">
-          <p data-cy="scan-cam-error" class="error">{{ error }}</p>
+          <v-container class="">
+            <v-layout row wrap align-center justify-center>
+              <v-flex class="xs12 md6 lg4">
+                <a @click.prevent="scanning = true">
+                  <v-img
+                    class="scan"
+                    width="30%"
+                    contain
+                    :src="require('../assets/qrcode-scan.png')"
+                  />
+
+                  <h1 class="scan display-1 mt-3">Scan your meat</h1>
+                </a>
+              </v-flex>
+            </v-layout>
+          </v-container>
+        </v-flex>
+      </v-layout>
+    </v-container>
+
+    <v-container v-if="scanning" fill-height grid-list-md text-xs-center>
+      <v-layout row wrap>
+        <v-flex class="xs12">
+          <p class="error">{{ error }}</p>
           <qrcode-stream
+            paused="!scanning"
+            class="qrcode"
             data-cy="qr-cam-stream"
             @decode="onDecode"
             @init="onInit"
             id="QRcamera"
           />
+        </v-flex>
+      </v-layout>
+    </v-container>
 
-          <v-btn
-            data-cy="stop-scan-button"
-            block
-            large
-            color="error"
-            v-on:click.native="scanning = false"
-            >Stop</v-btn
-          >
-        </div>
-      </v-flex>
-    </v-layout>
-  </v-container>
+    <v-toolbar fixed class="bottom-toolbar">
+      <v-btn icon>
+        <v-icon>menu</v-icon>
+      </v-btn>
+      <v-spacer />
+      <v-btn icon>
+        <v-icon>share</v-icon>
+      </v-btn>
+    </v-toolbar>
+
+    <v-btn
+      v-if="!scanning"
+      @click="scanning = true"
+      class="float-scan"
+      dark
+      fab
+      fixed
+      color="green"
+    >
+      <v-icon>camera</v-icon>
+    </v-btn>
+    <v-btn
+      v-if="scanning"
+      @click="scanning = false"
+      class="float-scan"
+      dark
+      fab
+      fixed
+      color="red"
+    >
+      <v-icon>camera</v-icon>
+    </v-btn>
+  </div>
 </template>
 
 <script lang="ts">
@@ -68,6 +120,8 @@ export default class Home extends Vue {
       } else if (error.name === 'StreamApiNotSupportedError') {
         this.error = 'ERROR: Stream API is not supported in this browser'
       }
+
+      console.log('on init', error)
     }
   }
 
@@ -84,7 +138,42 @@ export default class Home extends Vue {
 }
 </script>
 
-<style>
-.g {
+<style scoped>
+.scan {
+  margin: auto;
+}
+
+h1.scan {
+  color: white;
+  font-size: ;
+}
+
+.float-scan {
+  left: 50%;
+  margin-left: -28px;
+  bottom: 28px;
+}
+
+.qrcode {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  position: fixed;
+}
+
+.qrcode >>> .qrcode-stream__inner-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.qrcode >>> .qrcode-stream__camera {
+  width: 100%;
+  height: 100%;
+}
+
+.v-toolbar--fixed.bottom-toolbar {
+  left: 0;
+  bottom: 0;
 }
 </style>
