@@ -15,9 +15,10 @@ export default new Router({
       component: Scan
     },
     {
-      path: '/chain/:id',
+      path: '/chain/:chainId',
       name: 'chain',
-      component: Chain
+      component: Chain,
+      props: true
     }
   ]
 })
