@@ -14,7 +14,12 @@
 
         <div v-if="scanning">
           <p data-cy="scan-cam-error" class="error">{{ error }}</p>
-          <qrcode-stream data-cy="qr-cam-stream" @decode="onDecode" @init="onInit" id="QRcamera" />
+          <qrcode-stream
+            data-cy="qr-cam-stream"
+            @decode="onDecode"
+            @init="onInit"
+            id="QRcamera"
+          />
 
           <v-btn
             data-cy="stop-scan-button"
@@ -25,7 +30,6 @@
             >Stop</v-btn
           >
         </div>
-
       </v-flex>
     </v-layout>
   </v-container>
