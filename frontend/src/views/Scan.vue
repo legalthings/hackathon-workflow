@@ -3,6 +3,7 @@
     <v-layout row wrap align-center>
       <v-flex>
         <v-btn
+          id="start-scan"
           v-if="!scanning"
           block
           large

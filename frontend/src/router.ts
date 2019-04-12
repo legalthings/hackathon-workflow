@@ -1,9 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Scan from './views/Scan.vue'
-import Produce from './views/Produce.vue'
-import Chains from './views/Chains.vue'
-import Settings from './views/Settings.vue'
+import Chain from './views/Chain.vue'
 
 Vue.use(Router)
 
@@ -17,20 +15,9 @@ export default new Router({
       component: Scan
     },
     {
-      path: '/',
-      name: 'produce',
-      component: Produce
-    },
-
-    {
-      path: '/chains',
-      name: 'chains',
-      component: Chains
-    },
-    {
-      path: '/settings',
-      name: 'settings',
-      component: Settings
+      path: '/chain/:id',
+      name: 'chain',
+      component: Chain
     }
   ]
 })
