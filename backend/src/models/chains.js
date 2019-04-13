@@ -65,4 +65,4 @@ class ChainModel {
 
 }
 
-module.exports = ILTHelper;
+module.exports = ChainModel;

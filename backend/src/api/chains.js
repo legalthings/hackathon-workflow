@@ -1,5 +1,5 @@
 import resource from 'resource-router-middleware';
-import chains from '../models/chains';
+import ChainModel from '../models/chains';
 
 export default ({ config, db }) => resource({
 
@@ -9,11 +9,18 @@ export default ({ config, db }) => resource({
 	/** For requests with an `id`, you can auto-load the entity.
 	 *  Errors terminate the request, success sets `req[id] = data`.
 	 */
+
 	load(req, id, callback) {
-		let chian = chains.find( chains => chain.id===id ),
+		const chainModel = new ChainModel();
+		let chain = chainModel.loadChain(id),
 			err = chain ? null : 'Not found';
 		callback(err, chain);
 	},
+
+	read({ chain }, res) {
+		res.json(chain);
+	},
+
 	//
 	// /** GET / - List all entities */
 	// index({ params }, res) {
