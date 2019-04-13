@@ -15,7 +15,20 @@
     </v-toolbar>
 
     <v-card class="mx-3 my-5">
-      <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75"> </v-img>
+      <v-tabs-items v-model="selectedTab">
+        <v-tab-item>
+          <v-img
+            :src="require('../assets/sample_product.jpg')"
+            aspect-ratio="1.75"
+          />
+        </v-tab-item>
+        <v-tab-item>
+          <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
+        </v-tab-item>
+        <v-tab-item>
+          <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
+        </v-tab-item>
+      </v-tabs-items>
 
       <v-card-title primary-title>
         <div>
@@ -31,11 +44,12 @@
     </v-card>
 
     <v-card flat>
-      <v-tabs grow class="tabs">
+      <v-tabs grow class="tabs" v-model="selectedTab">
         <v-tab>Product</v-tab>
         <v-tab>Journey</v-tab>
         <v-tab>Farm</v-tab>
-
+      </v-tabs>
+      <v-tabs-items v-model="selectedTab">
         <v-tab-item>
           <p class="title mb-4">Description</p>
         </v-tab-item>
@@ -124,7 +138,7 @@
             </v-list>
           </v-card>
         </v-tab-item>
-      </v-tabs>
+      </v-tabs-items>
     </v-card>
   </v-card>
 </template>
@@ -138,6 +152,8 @@ import { Component, Watch, Prop } from 'vue-property-decorator'
 })
 export default class Chain extends Vue {
   @Prop(String) readonly chainId!: string
+
+  selectedTab: number = 0
 
   get chain() {
     const { chainId } = this
