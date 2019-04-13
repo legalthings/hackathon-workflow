@@ -6,8 +6,6 @@ const chainSeed = 'some eventchain seed';
 
 const node1 = 'http://localhost:3000';
 
-//const timeout = ms => new Promise(res => setTimeout(res, ms));
-
 (async() => {
   const nutrecoHelper = new NutrecoHelper(node1);
   const systemKey = await nutrecoHelper.loadSystemKey();
