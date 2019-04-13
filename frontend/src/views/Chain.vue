@@ -16,14 +16,14 @@
 
     <v-tabs-items v-model="selectedTab">
       <v-tab-item>
-        <v-card class="mx-5 my-5">
+        <v-card class="ma-3">
           <v-img
             :src="require('../assets/sample_product.jpg')"
             aspect-ratio="1.75"
           />
 
           <v-card-title>
-            <h3 class="headline mb-2">Greyduck Meat</h3>
+            <h3 data-cy="chain-title" class="headline mb-2">Greyduck Meat</h3>
 
             <v-spacer></v-spacer>
             <v-chip label>#1283SJ2</v-chip>
@@ -41,7 +41,7 @@
       </v-tab-item>
 
       <v-tab-item>
-        <v-card class="mx-5 my-5">
+        <v-card class="ma-3">
           <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
 
           <v-card-title>
@@ -61,7 +61,7 @@
       </v-tab-item>
 
       <v-tab-item>
-        <v-card class="mx-5 my-5">
+        <v-card class="ma-3">
           <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
 
           <v-card-title>
@@ -83,17 +83,17 @@
 
     <v-card flat>
       <v-tabs grow class="tabs" v-model="selectedTab">
-        <v-tab>Product</v-tab>
+        <v-tab>Produce</v-tab>
         <v-tab>Journey</v-tab>
         <v-tab>Farm</v-tab>
       </v-tabs>
       <v-tabs-items v-model="selectedTab">
-        <v-tab-item>
-          <p class="title mb-4">Description</p>
+        <v-tab-item class="ma-3">
+          <p class="headline mb-4">Overview</p>
         </v-tab-item>
 
         <v-tab-item class="ma-3">
-          <p class="title mb-4">Timeline</p>
+          <p class="headline mb-4">Timeline</p>
           <v-timeline align-top dense>
             <v-timeline-item color="pink" small>
               <v-layout pt-3>
@@ -132,21 +132,7 @@
           </v-timeline>
         </v-tab-item>
         <v-tab-item class="ma-3 pb-4">
-          <div v-if="farmLocation" class="map">
-            <GmapMap
-              :center="farmLocation.center"
-              :zoom="18"
-              map-type-id="hybrid"
-              style="width: 100%; height: 100%"
-            >
-              <GmapMarker
-                :position="farmLocation.center"
-                :clickable="false"
-                :draggable="false"
-              />
-            </GmapMap>
-          </div>
-          <p class="headline mt-4">Description</p>
+          <p class="headline">Description</p>
           <p class="heading">
             There were fields all around, interrupted only by a steep mountain
             cliff, which casted its shadow on the fields in the morning. All
@@ -160,11 +146,19 @@
             flower garden. The farm had a tranquil feel to it, there was just
             something about the farm that felt very intimate and welcoming.
           </p>
-          <p class="headline">Licenses &amp; Certificates</p>
+          <p class="headline mt-5">Licenses &amp; Certificates</p>
 
           <v-card>
-            <v-list>
-              <v-list-tile :href="'/license/' + chainId">
+            <v-list three-line>
+              <v-list-tile :to="'/license/' + chainId">
+                <v-list-tile-content>
+                  <img
+                    :src="require('../assets/better-life-2.png')"
+                    aspect-ratio="1.2"
+                    alt="Better Life License"
+                  />
+                </v-list-tile-content>
+
                 <v-list-tile-content>
                   <v-list-tile-title>Better Life License</v-list-tile-title>
                 </v-list-tile-content>
@@ -173,11 +167,21 @@
                   <v-icon>info</v-icon>
                 </v-list-tile-action>
               </v-list-tile>
+              <v-divider></v-divider>
 
-              <v-list-tile :href="'/certificate/' + chainId">
+              <v-list-tile :to="'/certificate/' + chainId">
+                <v-list-tile-content>
+                  <img
+                    :src="require('../assets/gap-label.png')"
+                    alt="Global Animal Parnership Certificate"
+                  />
+                </v-list-tile-content>
+
                 <v-list-tile-content>
                   <v-list-tile-title
                     >Global Animal Parnership Certificate</v-list-tile-title
+                  >
+
                   >
                 </v-list-tile-content>
 
@@ -187,6 +191,31 @@
               </v-list-tile>
             </v-list>
           </v-card>
+          <p class="headline mt-5">Location</p>
+
+          <div v-if="farmLocation" class="map">
+            <GmapMap
+              :options="{
+                zoomControl: false,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                rotateControl: false,
+                fullscreenControl: false,
+                disableDefaultUi: false
+              }"
+              :center="farmLocation.center"
+              :zoom="18"
+              map-type-id="hybrid"
+              style="width: 100%; height: 100%"
+            >
+              <GmapMarker
+                :position="farmLocation.center"
+                :clickable="false"
+                :draggable="false"
+              />
+            </GmapMap>
+          </div>
         </v-tab-item>
       </v-tabs-items>
     </v-card>

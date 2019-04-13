@@ -499,6 +499,8 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
 
 
   let appUrl = `https://ddfb878d.ngrok.io/chain/${chain.id}/`;
+  let backendUrl = `http://localhost:9000/api/chains/${chain.id}/`;
+  console.info(`Backend API url: ${backendUrl}`)
   console.info(`Scan the QR to go to the app url: ${appUrl}`)
   qrcode.generate(appUrl, {small: true});
   // console.log(res);

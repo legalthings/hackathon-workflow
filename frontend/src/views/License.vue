@@ -1,7 +1,7 @@
 <template>
   <v-card flat class="mx-auto elevation-16 main" max-width="60rem">
     <v-toolbar flat color="white">
-      <v-btn icon :href="'/chain/' + chainId">
+      <v-btn icon :to="'/chain/' + chainId">
         <v-icon>keyboard_arrow_left</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
@@ -20,7 +20,7 @@
         <div>
           <p class="headline mb-4">License</p>
 
-          <p class="title">Better Life Label</p>
+          <p class="title mt-4">Better Life Label</p>
           <p class="subheading">
             The Dutch Society for the Protection of Animals (SPA) is the largest
             animal protection organisation in the Netherlands, with over 160,000
@@ -30,7 +30,7 @@
             groups in the EU member states.
           </p>
 
-          <p class="title">Why the better life label?</p>
+          <p class="title mt-4">Why the better life label?</p>
 
           <p class="subheading">
             From the existing farming systems the Dutch SPA values organic and
@@ -44,7 +44,7 @@
             to the development of the Better Life label.
           </p>
 
-          <p class="title">A label with different levels</p>
+          <p class="title mt-4">A label with different levels</p>
 
           <p class="subheading">
             The Better Life label is simple. Research shows that it is the best
@@ -75,7 +75,7 @@
       </v-card-text>
     </v-card>
 
-    <v-card>
+    <v-card style="background: #89acff;">
       <v-card-title>
         <p class="display-1">Two Stars</p>
         <v-spacer></v-spacer>
@@ -120,6 +120,10 @@ export default class License extends Vue {
 <style>
 .main {
   background-image: linear-gradient(-90deg, #7daef4 0%, #4776e6 100%);
+}
+
+.main > .v-card {
+  margin-bottom: 5px;
 }
 
 .tabs .v-window {
