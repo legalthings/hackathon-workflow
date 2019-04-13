@@ -300,7 +300,7 @@
   "actions": {
     "start": {
       "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
-      "actor": "license_holder",
+      "actor": "nutreco",
       "responses": {
         "ok": {
           "title": "Started new supply chain",
