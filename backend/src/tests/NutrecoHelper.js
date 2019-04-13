@@ -129,7 +129,6 @@ class NutrecoHelper {
     const identityEvent = this.createIdentity(account, 'Nutreco', signkey, nodeAddress);
     identityEvent.addTo(chain).signWith(account);
 
-    console.log(chain);
 
     const scenario = require('../../../scenarios/supply_chain.json');
     const scenarioEvent = new Event(scenario);
@@ -138,7 +137,6 @@ class NutrecoHelper {
     const key = scenario.actions['start'].default_response || 'ok';
 
     const processId = chain.createProjectionId('main');
-
     const response = {
       '$schema': 'https://specs.livecontracts.io/v0.1.0/response/schema.json#',
       process: {
