@@ -16,7 +16,7 @@
 
     <v-tabs-items v-model="selectedTab">
       <v-tab-item>
-        <v-card class="mx-3 my-5">
+        <v-card class="mx-5 my-5">
           <v-img
             :src="require('../assets/sample_product.jpg')"
             aspect-ratio="1.75"
@@ -26,53 +26,56 @@
             <h3 class="headline mb-2">Greyduck Meat</h3>
 
             <v-spacer></v-spacer>
-            <h4 class="font-weight-bold">#1283SJ2</h4>
+            <v-chip label>#1283SJ2</v-chip>
           </v-card-title>
 
           <v-card-text>
-            The meat is tastey, delicious and melts in your mouth like those
-            gummies Odyssey gave us.
-          </v-card-text>
+            <p class="title">
+              The meat is tasty, delicious and mystic, and melts in your mouth
+              like those gummies Odyssey gave us.
+            </p>
+
+            <p></p
+          ></v-card-text>
         </v-card>
       </v-tab-item>
 
       <v-tab-item>
-        <v-card class="mx-3 my-5">
-          <v-img
-            :src="require('../assets/sample_product.jpg')"
-            aspect-ratio="1.75"
-          />
-
-          <v-card-title>
-            <h3 class="headline mb-2">Greyduck Farm</h3>
-
-            <v-spacer></v-spacer>
-            <h4 class="font-weight-bold">#1283SJ2</h4>
-          </v-card-title>
-
-          <v-card-text>
-            Greyduck coyote farm specializes coyote meat and coyote meat only.
-            The meat is widely recognized and generally considered to be the
-            most tender meat in the entire world.
-          </v-card-text>
-        </v-card>
-      </v-tab-item>
-
-      <v-tab-item>
-        <v-card class="mx-3 my-5">
+        <v-card class="mx-5 my-5">
           <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
 
           <v-card-title>
             <h3 class="headline mb-2">Greyduck Farm</h3>
-
             <v-spacer></v-spacer>
-            <h4 class="font-weight-bold">#1283SJ2</h4>
+            <v-chip label>#1283SJ2</v-chip>
           </v-card-title>
 
           <v-card-text>
-            Greyduck coyote farm specializes coyote meat and coyote meat only.
-            The meat is widely recognized and generally considered to be the
-            most tender meat in the entire world.
+            <p class="title">
+              Greyduck coyote farm specializes coyote meat and coyote meat only.
+              The meat is widely recognized and generally considered to be the
+              most tender meat in the entire world.
+            </p>
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+
+      <v-tab-item>
+        <v-card class="mx-5 my-5">
+          <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
+
+          <v-card-title>
+            <h3 class="headline mb-2">Greyduck Farm</h3>
+            <v-spacer></v-spacer>
+            <v-chip label>#1283SJ2</v-chip>
+          </v-card-title>
+
+          <v-card-text>
+            <p class="title">
+              Greyduck coyote farm specializes coyote meat and coyote meat only.
+              The meat is widely recognized and generally considered to be the
+              most tender meat in the entire world.
+            </p>
           </v-card-text>
         </v-card>
       </v-tab-item>
