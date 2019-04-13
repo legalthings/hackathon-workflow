@@ -10,7 +10,11 @@
 
           <v-card-title primary-title>
             <div>
-              <h3 data-cy="chain-title" class="headline mb-0">
+              <h3
+                :data-test="chainId"
+                data-cy="chain-title"
+                class="headline mb-0"
+              >
                 {{ chain.title }}
               </h3>
               <div>{{ chain.description }}</div>
