@@ -30,7 +30,7 @@
           </v-card-title>
 
           <v-card-text>
-            <p class="title">
+            <p class="title font-weight-light">
               The meat is tasty, delicious and mystic, and melts in your mouth
               like those gummies Odyssey gave us.
             </p>
@@ -51,7 +51,7 @@
           </v-card-title>
 
           <v-card-text>
-            <p class="title">
+            <p class="title font-weight-light">
               Greyduck coyote farm specializes coyote meat and coyote meat only.
               The meat is widely recognized and generally considered to be the
               most tender meat in the entire world.
@@ -71,7 +71,7 @@
           </v-card-title>
 
           <v-card-text>
-            <p class="title">
+            <p class="title font-weight-light">
               Greyduck coyote farm specializes coyote meat and coyote meat only.
               The meat is widely recognized and generally considered to be the
               most tender meat in the entire world.
@@ -144,7 +144,7 @@
             courtyard, a couple of dogs rested under the tree in the center of
             the courtyard, and a small plot of land was used for a breathtaking
             flower garden. The farm had a tranquil feel to it, there was just
-            something about the farm that felt very intimate and welcoming.
+            somelightg about the farm that felt very intimate and welcoming.
           </p>
           <p class="headline mt-5">Licenses &amp; Certificates</p>
 
