@@ -104,6 +104,11 @@
                     standards and code.
                   </div>
                 </v-flex>
+                <v-spacer></v-spacer>
+                <v-btn
+                  href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
+                  >Explore</v-btn
+                >
               </v-layout>
             </v-timeline-item>
             <v-timeline-item color="pink" small>
@@ -112,6 +117,11 @@
                   <strong>Producer</strong>
                   <div class="caption">Farmer raised the coyote.</div>
                 </v-flex>
+                <v-spacer></v-spacer>
+                <v-btn
+                  href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
+                  >Explore</v-btn
+                >
               </v-layout>
             </v-timeline-item>
 
@@ -123,6 +133,11 @@
                     The processec coyote meat gets transported to the processor.
                   </div>
                 </v-flex>
+                <v-spacer></v-spacer>
+                <v-btn
+                  href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
+                  >Explore</v-btn
+                >
               </v-layout>
             </v-timeline-item>
 
@@ -134,6 +149,11 @@
                     Coyote gets processed into batches and finalized for sale.
                   </div>
                 </v-flex>
+                <v-spacer></v-spacer>
+                <v-btn
+                  href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
+                  >Explore</v-btn
+                >
               </v-layout>
             </v-timeline-item>
 
@@ -145,6 +165,11 @@
                     Coyote gets send to the distributor and gets sold.
                   </div>
                 </v-flex>
+                <v-spacer></v-spacer>
+                <v-btn
+                  href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
+                  >Explore</v-btn
+                >
               </v-layout>
             </v-timeline-item>
           </v-timeline>
