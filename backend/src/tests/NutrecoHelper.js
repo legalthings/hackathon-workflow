@@ -68,13 +68,13 @@ class NutrecoHelper {
     return this.sendRequest(account, path, method);
   }
 
-  deleteProcess(account, process, nutrecoPublicKey, seed) {
+  deleteProcess(account, process, seed, nutrecoPublicKey) {
     const chainId = this.lto.createEventChainId(nutrecoPublicKey, seed);
     const chain = new EventChain(chainId);
     const processId = chain.createProjectionId(process);
 
     const path = `/api/flow/processes/${processId}`;
-    const method = 'delete'
+    const method = 'delete';
 
     return this.sendRequest(account, path, method);
   }
@@ -124,15 +124,17 @@ class NutrecoHelper {
     return err || response.statusCode == 502;
   }
 
-  createSupplyChain(account, seed, signkey, actorInfo, nodeAddress) {
+  async createSupplyChain(account, seed, signkey, actorInfo, nodeAddress) {
     const chain = account.createEventChain(seed);
     const identityEvent = this.createIdentity(account, 'Nutreco', signkey, nodeAddress);
     identityEvent.addTo(chain).signWith(account);
+    await this.sendChain(account, chain);
 
 
     const scenario = require('../../../scenarios/supply_chain.json');
     const scenarioEvent = new Event(scenario);
     scenarioEvent.addTo(chain).signWith(account);
+    await this.sendChain(account, chain);
 
     const key = scenario.actions['start'].default_response || 'ok';
 
@@ -164,18 +166,20 @@ class NutrecoHelper {
   async loadChain(account, seed, nutrecoPublicKey) {
     const chainId = this.lto.createEventChainId(nutrecoPublicKey, seed);
 
-    const path = `/api/event/event-chains/${chainId}`;
+    const path = `/api/events/event-chains/${chainId}`;
     const method = 'get';
     const chain = new EventChain();
     const chainData = await this.sendRequest(account, path, method);
 
-    return chain.setValue(chainData);
+    return chain.setValues(chainData);
   }
 
   loadProcess(account, seed, process, nutrecoPublicKey) {
     const chainId = this.lto.createEventChainId(nutrecoPublicKey, seed);
     const chain = new EventChain();
-    const processId = chain.createProjectenId(process);
+    console.log(process);
+    const processId = chain.createProjectionId(process);
+    console.log(processId);
     
     const path = `/api/flow/processes/${processId}`;
     const method = 'get';
@@ -183,7 +187,8 @@ class NutrecoHelper {
     return this.sendRequest(account, path, method);
   }
 
-  performDataAction(chain, account, processId, action) {
+  performDataAction(chain, account, process, action) {
+    const processId = chain.createProjectionId(process);
     const response = {
       '$schema': 'https://specs.livecontracts.io/v0.1.0/response/schema.json#',
       process: {
@@ -201,7 +206,7 @@ class NutrecoHelper {
     };
 
     const event = new Event(response);
-    event.addTo(chain).signWithAccount(account);
+    event.addTo(chain).signWith(account);
     return chain;
   }
 }

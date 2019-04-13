@@ -27,9 +27,10 @@ const node1 = 'http://localhost:3000';
   const meatTransporter2Account = nutrecoHelper.createAccount('some meat transporter 2 seed');
 
   const nutrecoPublicSignKey = nutrecoAccount.getPublicSignKey();
+  const process = 'main';
 
   console.log('Delete previous chains and processes');
-  console.log(await nutrecoHelper.deleteProcess(nutrecoAccount, chainSeed, 'main'));
+  console.log(await nutrecoHelper.deleteProcess(nutrecoAccount, process, chainSeed, nutrecoAccount.getPublicSignKey()));
   console.log(await nutrecoHelper.deleteEventChain(nutrecoAccount, chainSeed));
 
   actorData = {
@@ -110,6 +111,30 @@ const node1 = 'http://localhost:3000';
   let chain = await nutrecoHelper.createSupplyChain(nutrecoAccount, chainSeed, systemKey, actorData, nodeAddress);
   console.log(chain.id)
   let res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+
+  console.log(res);
+
+  let action = {
+    key: "invite_actors",
+    actor: {
+      key: 'nutreco',
+      id: nutrecoAccount.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, action);
+  process_full = nutrecoHelper.loadProcess(nutrecoAccount, chainSeed, process, nutrecoAccount.getPublicSignKey());
+  console.log(process_full);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+
+  console.log(res);
+
+
 
   let appUrl = `https://ddfb878d.ngrok.io/chain/${chain.id}/`;
   console.info(`Scan the QR to go to the app url: ${appUrl}`)
