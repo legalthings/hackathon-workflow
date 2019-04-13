@@ -134,6 +134,15 @@
         <v-tab-item class="ma-3 pb-4">
           <div v-if="farmLocation" class="map">
             <GmapMap
+              :options="{
+                zoomControl: false,
+                mapTypeControl: false,
+                scaleControl: false,
+                streetViewControl: false,
+                rotateControl: false,
+                fullscreenControl: false,
+                disableDefaultUi: false
+              }"
               :center="farmLocation.center"
               :zoom="18"
               map-type-id="hybrid"
