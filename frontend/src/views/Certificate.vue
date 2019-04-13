@@ -17,7 +17,7 @@
         <div>
           <p class="headline mb-4">Certificate</p>
 
-          <p class="title">Global Animal Partnership</p>
+          <p class="title mt-4">Global Animal Partnership</p>
           <p class="subheading">
             In 2008, Whole Foods Market – a US-based natural and organic food
             grocer – successfully piloted a Step-rated Program at the launch of
