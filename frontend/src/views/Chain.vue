@@ -23,7 +23,6 @@
       <template v-slot:extension>
         <v-tabs v-model="tab" color="white" grow>
           <v-tabs-slider color="dark"></v-tabs-slider>
-
           <v-tab>Overview</v-tab>
           <v-tab>Journey</v-tab>
           <v-tab>Farm</v-tab>
@@ -106,11 +105,6 @@
     </v-card-text>
 
     <v-bottom-nav :value="true" absolute shift>
-      <v-btn dark>
-        <span>Menu</span>
-        <v-icon>menu</v-icon>
-      </v-btn>
-
       <v-spacer></v-spacer>
 
       <v-btn dark>
