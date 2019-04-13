@@ -23,7 +23,7 @@ class NutrecoHelper {
 
   async loadSystemKey() {
     const systemInfo = await request({url: this.url, json: true});
-    return systemInfo.services.event.signkey;
+    return systemInfo.services.events.signkey;
   }
 
   async loadNodeAddress() {
@@ -127,11 +127,11 @@ class NutrecoHelper {
   createSupplyChain(account, seed, signkey, actorInfo, nodeAddress) {
     const chain = account.createEventChain(seed);
     const identityEvent = this.createIdentity(account, 'Nutreco', signkey, nodeAddress);
-    IdentityEVent.addTo(chain).signWith(account);
+    identityEvent.addTo(chain).signWith(account);
 
     console.log(chain);
 
-    const scenario = require('../../scenarios/supply_chain.json');
+    const scenario = require('../../../scenarios/supply_chain.json');
     const scenarioEvent = new Event(scenario);
     scenarioEvent.addTo(chain).signWith(account);
 

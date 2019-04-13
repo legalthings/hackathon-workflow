@@ -589,7 +589,7 @@
         }
       }
     },
-    "egg_transport_leaving: {
+    "egg_transport_leaving": {
       "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
       "actor": "egg_transporter",
       "responses": {
@@ -602,7 +602,7 @@
         }
       }
     },
-    "egg_transport_arriving: {
+    "egg_transport_arriving": {
       "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
       "actor": "egg_transporter",
       "responses": {
@@ -641,7 +641,7 @@
         }
       }
     },
-    "food_transport_2_arriving: {
+    "food_transport_2_arriving": {
       "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
       "actor": "food_transporter_2",
       "responses": {
@@ -732,7 +732,7 @@
         }
       }
     },
-    "meat_transport_leaving: {
+    "meat_transport_leaving": {
       "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
       "actor": "meat_transporter_1",
       "responses": {
@@ -758,7 +758,7 @@
         }
       }
     },
-    "meat_transport_2_leaving: {
+    "meat_transport_2_leaving": {
       "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
       "actor": "meat_transporter_2",
       "responses": {
@@ -771,7 +771,7 @@
         }
       }
     },
-    "meat_transport_2_arriving: {
+    "meat_transport_2_arriving": {
       "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
       "actor": "meat_transporter_2",
       "responses": {

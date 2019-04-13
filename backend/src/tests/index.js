@@ -1,5 +1,5 @@
 'use-strict';
-const NutrecoHelper = require('../lib/NutrecoHelper');
+const NutrecoHelper = require('./NutrecoHelper');
 
 const accountSeed = 'some nutreco seed';
 const chainSeed = 'some eventchain seed';
@@ -18,10 +18,10 @@ const node1 = 'http://localhost:3000';
   const hatcherAccount = nutrecoHelper.createAccount('some hatcher seed');
   const eatChickenAccount = nutrecoHelper.createAccount('some eat chicken seed');
   const slaughterhouseAccount = nutrecoHelper.createAccount('some slaughterhouse seed');
-  const superMarketAccount = nutrecoHelper.createAccount('some supermarket seed');
+  const supermarketAccount = nutrecoHelper.createAccount('some supermarket seed');
   const foodTransporter1Account = nutrecoHelper.createAccount('some food transporter 1 seed');
   const foodTransporter2Account = nutrecoHelper.createAccount('some food transporter 2 seed');
-  const eggtransporterAccount = nutrecoHelper.createAccount('some egg transporter seed');
+  const eggTransporterAccount = nutrecoHelper.createAccount('some egg transporter seed');
   const chickenTransporter1Account = nutrecoHelper.createAccount('some chicken transporter 1 seed');
   const chickenTransporter2Account = nutrecoHelper.createAccount('some chicken transporter 2 seed');
   const meatTransporter1Account = nutrecoHelper.createAccount('some meat transporter 1 seed');
@@ -48,13 +48,13 @@ const node1 = 'http://localhost:3000';
     },
     eat_chickens: {
       name: 'Eat chickens',
-      public_key: eatChickensAccount.getPublicSignKey(),
+      public_key: eatChickenAccount.getPublicSignKey(),
       systenKey: systemKey,
       node: nodeAddress
     },
     slaughterhouse: {
       name: 'Slaughterhouse',
-      public_key: slaughterHouseAccount.getPublicSignKey(),
+      public_key: slaughterhouseAccount.getPublicSignKey(),
       systenKey: systemKey,
       node: nodeAddress
     },
@@ -108,7 +108,7 @@ const node1 = 'http://localhost:3000';
     }
   };
 
-  let chain = await nutrecoHelper.createSupplyChain(nutrecoAccount, chainSeed, systemkey, actorData, nodeAddress);
+  let chain = await nutrecoHelper.createSupplyChain(nutrecoAccount, chainSeed, systemKey, actorData, nodeAddress);
   let res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
 
   console.log(res);
