@@ -1,34 +1,5 @@
 <template>
-<<<<<<< HEAD
-  <v-container bg fill-height grid-list-md text-xs-center>
-    <v-layout row wrap align-center>
-      <v-flex xs12 sm6 offset-sm3>
-        <v-card>
-          <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
-            aspect-ratio="2.75"
-          ></v-img>
-
-          <v-card-title primary-title v-if="chain">
-            <div>
-              <h3
-                :data-test="chainId"
-                data-cy="chain-title"
-                class="headline mb-0"
-              >
-                {{ chain.title }}
-              </h3>
-              <div>{{ chain.description }}</div>
-            </div>
-          </v-card-title>
-
-          <v-card-actions v-if="chain">
-            <v-btn flat color="orange">{{ chain.title }}</v-btn>
-            <v-btn flat color="orange">Journey</v-btn>
-            <v-btn flat color="orange">Farm</v-btn>
-          </v-card-actions>
-=======
-  <v-card class="mx-auto" max-width="100%">
+  <v-card class="mx-auto elevation-16" max-width="60rem">
     <v-card dark flat>
       <v-btn absolute bottom color="primary" right fab>
         <v-icon>md-plus</v-icon>
@@ -67,8 +38,7 @@
     <v-tabs-items v-model="tab">
       <v-tab-item v-for="n in 3" :key="n">
         <v-card flat>
-          <v-card-text>{{ text }}</v-card-text>
->>>>>>> 4c67324119d00b67c631543a0b7add18f3cb85d3
+          <v-card-text>text</v-card-text>
         </v-card>
       </v-tab-item>
     </v-tabs-items>
@@ -148,6 +118,8 @@ import { Component, Watch, Prop } from 'vue-property-decorator'
 @Component
 export default class Chain extends Vue {
   @Prop(String) readonly chainId!: string
+
+  tab: string = 'produce'
 
   get chain() {
     const { chainId } = this
