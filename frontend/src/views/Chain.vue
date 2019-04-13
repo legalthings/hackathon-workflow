@@ -177,7 +177,7 @@
               <v-list-tile :href="'/certificate/' + chainId">
                 <v-list-tile-content>
                   <v-list-tile-title
-                    >Global Animal Parnership</v-list-tile-title
+                    >Global Animal Parnership Certificate</v-list-tile-title
                   >
                 </v-list-tile-content>
 

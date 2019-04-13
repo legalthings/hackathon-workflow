@@ -10,51 +10,47 @@
     </v-toolbar>
 
     <v-card>
-      <v-img
-        :src="require('../assets/better-life-card.png')"
-        aspect-ratio="1.75"
-      >
+      <v-img :src="require('../assets/gap-card.png')" aspect-ratio="1.75">
       </v-img>
 
       <v-card-text primary-title>
         <div>
-          <p class="headline mb-4">License</p>
+          <p class="headline mb-4">Certificate</p>
 
-          <p class="title">Better Life Label</p>
+          <p class="title">Global Animal Partnership</p>
           <p class="subheading">
-            The Dutch Society for the Protection of Animals (SPA) is the largest
-            animal protection organisation in the Netherlands, with over 160,000
-            members. Besides 350 paid employees about 30,000 volunteers are
-            active for the society. The Dutch SPA is member of Eurogroup for
-            Animals, the umbrella organisation of the leading animal welfare
-            groups in the EU member states.
+            In 2008, Whole Foods Market – a US-based natural and organic food
+            grocer – successfully piloted a Step-rated Program at the launch of
+            their flagship store in London, England. With the success of the
+            launch in the UK, WFMʼs co-CEO John Mackey felt that a significantly
+            greater impact could be achieved internationally by having an
+            independent organization own and develop a farm animal welfare
+            certification Program. And so in late 2008, with help from Whole
+            Foods Market, the Global Animal Partnership was born.
+          </p>
+          <p class="subheading">
+            Since that time, weʼve grown our team and program to better serve
+            all of our partners. We look forward to continuing our strong
+            partnerships with farmers, ranchers, producers, manufacturers, food
+            service companies, and restaurants as we continue to grow awareness
+            and demand for GAP products.
           </p>
 
-          <p class="title">Why the better life label?</p>
-
-          <p class="subheading">
-            From the existing farming systems the Dutch SPA values organic and
-            free range systems the most. But less than 1% of the 450 million
-            animals annually produced in Dutch farming are kept in these
-            systems. The Dutch SPA also wants to improve the welfare of the
-            other 99% of production animals that often live in very intensive
-            not very animal friendly systems. One way to do that is to work with
-            the industry in setting up market segments with products derived
-            from animals that are kept in a more animal friendly way. This led
-            to the development of the Better Life label.
+          <p class="title mt-4">
+            How does the 5-Step Animal Welfare Rating program work?
           </p>
 
-          <p class="title">A label with different levels</p>
-
           <p class="subheading">
-            The Better Life label is simple. Research shows that it is the best
-            known food label among Dutch consumers. It has three levels to
-            resemble the process of ‘raising the bar’ and to offer farmers and
-            consumers the possibility to improve animal welfare step by step. If
-            a product doesn’t have the Better Life label, i.e. no stars, it is a
-            product derived form a regular, intensive farmingsystem with no
-            added animal welfare, or a farming system that has not been
-            certified by the Dutch SPA.
+            The Program has different tiers – or steps – that represent the
+            different ways and types of farming systems animals are raised in on
+            farms. Every farm involved in raising beef, chicken, turkey, pork,
+            lamb, goat, bison, and laying hens has to have an third-party audit
+            to verify they meet the GAP standards, every 15 months. Each farm is
+            certified to the highest step level they can achieve and is
+            encouraged to move up the step tiers whenever possible. The Program
+            is a way for consumers to be reassured that the meat and eggs they
+            buy in stores and at restaurants has been raised to standards that
+            provide for the animal and the environment in which they live.
           </p>
         </div>
       </v-card-text>
@@ -62,45 +58,74 @@
 
     <v-card>
       <v-card-title>
-        <p class="display-1">One Star</p>
+        <p class="display-1">Step 1</p>
         <v-spacer></v-spacer>
-        <v-img :src="require('../assets/better-life-1.png')"> </v-img>
+        <v-img :src="require('../assets/gap-step-1.png')"> </v-img>
       </v-card-title>
 
       <v-card-text>
         <p class="subheading">
-          Regular farming with additional requirements to improve the most
-          urgent animal welfare issues.
+          Chickens live in a stationary housing structure and are provided space
+          to express natural behavior and given access to added enrichments.
         </p>
       </v-card-text>
     </v-card>
 
     <v-card>
       <v-card-title>
-        <p class="display-1">Two Stars</p>
+        <p class="display-1">Step 2</p>
         <v-spacer></v-spacer>
-        <v-img :src="require('../assets/better-life-2.png')"> </v-img>
+        <v-img :src="require('../assets/gap-step-2.png')"> </v-img>
       </v-card-title>
 
       <v-card-text>
         <p class="subheading">
-          The animals get access to an outdoor area and many ofthe animal
-          welfare issues need to be resolved or need further improvement.
+          Chickens live in an indoor environment with at least two different
+          types of enrichment and natural light (by 2022).
         </p>
       </v-card-text>
     </v-card>
 
     <v-card>
       <v-card-title>
-        <p class="display-1">Three Stars</p>
+        <p class="display-1">Step 3</p>
         <v-spacer></v-spacer>
-        <v-img :src="require('../assets/better-life-3.png')"> </v-img>
+        <v-img :src="require('../assets/gap-step-3.png')"> </v-img>
       </v-card-title>
 
       <v-card-text>
         <p class="subheading">
-          Awarded to organic farming systems, and farming systems with
-          acomparable level of animal welfare.
+          Chickens have seasonal outdoor access.
+        </p>
+      </v-card-text>
+    </v-card>
+
+    <v-card>
+      <v-card-title>
+        <p class="display-1">Step 4</p>
+        <v-spacer></v-spacer>
+        <v-img :src="require('../assets/gap-step-4.png')"> </v-img>
+      </v-card-title>
+
+      <v-card-text>
+        <p class="subheading">
+          Chickens live on pasture; during winter chickens may be housed with
+          continuous access to the outdoors.
+        </p>
+      </v-card-text>
+    </v-card>
+
+    <v-card>
+      <v-card-title>
+        <p class="display-1">Step 5</p>
+        <v-spacer></v-spacer>
+        <v-img :src="require('../assets/gap-step-5.png')"> </v-img>
+      </v-card-title>
+
+      <v-card-text>
+        <p class="subheading">
+          Chickens live continuously on pasture and may only be housed during
+          extreme.
         </p>
       </v-card-text>
     </v-card>
