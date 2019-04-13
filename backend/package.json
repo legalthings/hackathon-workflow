@@ -1,7 +1,7 @@
 {
-  "name": "express-es6-rest-api",
-  "version": "0.3.0",
-  "description": "Starter project for an ES6 RESTful Express API",
+  "name": "FoodFlow backend",
+  "version": "0.0.1",
+  "description": "Backend for the FoodFlow app",
   "main": "dist",
   "scripts": {
     "dev": "nodemon -w src --exec \"babel-node src --presets es2015,stage-0\"",
@@ -25,8 +25,7 @@
       "no-unused-vars": 1
     }
   },
-  "repository": "developit/express-es6-rest-api",
-  "author": "Jason Miller <jason@developit.ca>",
+  "repository": "odysseyhack/foodflow",
   "license": "MIT",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
