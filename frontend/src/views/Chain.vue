@@ -1,6 +1,6 @@
 <template>
-  <v-container bg fill-height grid-list-md text-xs-center>
-    <v-layout row wrap align-center>
+  <v-container fill-height grid-list-md text-xs-center class="main">
+    <v-layout row wrap aligncenter>
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
           <v-img
@@ -49,4 +49,8 @@ export default class Chain extends Vue {
 }
 </script>
 
-<style></style>
+<style>
+.main {
+  max-width: 800px;
+}
+</style>

@@ -1,8 +1,14 @@
 <template>
   <div>
-    <v-container v-if="!scanning" fill-height grid-list-md text-xs-center>
+    <v-container
+      v-if="!scanning"
+      fill-height
+      grid-list-md
+      text-xs-center
+      class="main"
+    >
       <v-layout row wrap align-center justify-center>
-        <v-flex class="xs12">
+        <v-flex xs12>
           <v-img
             contain
             class="logo"
@@ -130,6 +136,8 @@ export default class Home extends Vue {
   @Watch('result')
   onResultChange(value: string, oldvalue: string) {
     console.log('redirect', value)
+    const chainId = '12345'
+    this.$router.push({ path: `/chain/${chainId}` })
   }
 }
 </script>
@@ -166,5 +174,9 @@ h1.scan {
 .qrcode >>> .qrcode-stream__camera {
   width: 100%;
   height: 100%;
+}
+
+.main {
+  max-width: 800px;
 }
 </style>
