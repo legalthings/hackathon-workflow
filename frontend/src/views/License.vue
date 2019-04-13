@@ -61,14 +61,14 @@
     </v-card>
 
     <v-card>
-      <v-card-title>
-        <p class="display-1">One Star</p>
+      <v-card-title class="pt-0 pb-0">
+        <p style="font-size: 28px;">One Star</p>
         <v-spacer></v-spacer>
         <v-img :src="require('../assets/better-life-1.png')"> </v-img>
       </v-card-title>
 
       <v-card-text>
-        <p class="subheading">
+        <p class="title">
           Regular farming with additional requirements to improve the most
           urgent animal welfare issues.
         </p>
@@ -76,14 +76,14 @@
     </v-card>
 
     <v-card style="background: #89acff;">
-      <v-card-title>
-        <p class="display-1">Two Stars</p>
+      <v-card-title class="pt-0 pb-0">
+        <p style="font-size: 28px;">Two Star</p>
         <v-spacer></v-spacer>
         <v-img :src="require('../assets/better-life-2.png')"> </v-img>
       </v-card-title>
 
       <v-card-text>
-        <p class="subheading">
+        <p class="title">
           The animals get access to an outdoor area and many ofthe animal
           welfare issues need to be resolved or need further improvement.
         </p>
@@ -91,14 +91,14 @@
     </v-card>
 
     <v-card>
-      <v-card-title>
-        <p class="display-1">Three Stars</p>
+      <v-card-title class="pt-0 pb-0">
+        <p style="font-size: 28px;">Three Star</p>
         <v-spacer></v-spacer>
         <v-img :src="require('../assets/better-life-3.png')"> </v-img>
       </v-card-title>
 
       <v-card-text>
-        <p class="subheading">
+        <p class="title">
           Awarded to organic farming systems, and farming systems with
           acomparable level of animal welfare.
         </p>
