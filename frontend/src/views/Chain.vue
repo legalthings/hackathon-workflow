@@ -8,7 +8,7 @@
             aspect-ratio="2.75"
           ></v-img>
 
-          <v-card-title primary-title>
+          <v-card-title primary-title v-if="chain">
             <div>
               <h3
                 :data-test="chainId"
@@ -21,7 +21,7 @@
             </div>
           </v-card-title>
 
-          <v-card-actions>
+          <v-card-actions v-if="chain">
             <v-btn flat color="orange">{{ chain.title }}</v-btn>
             <v-btn flat color="orange">Journey</v-btn>
             <v-btn flat color="orange">Farm</v-btn>
@@ -41,10 +41,12 @@ export default class Chain extends Vue {
   @Prop(String) readonly chainId!: string
 
   get chain() {
-    return {
-      title: 'Chicken',
-      description: 'This is a chicken!'
+    const { chainId } = this
+    if (chainId && !this.$store.state.chains[chainId]) {
+      this.$store.dispatch('fetchChain', { chainId })
     }
+
+    return this.$store.state.chains[chainId]
   }
 }
 </script>

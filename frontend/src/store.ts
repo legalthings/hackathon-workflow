@@ -3,8 +3,52 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {},
-  mutations: {},
-  actions: {}
+interface Chain {
+  title: string
+}
+
+interface RootState {
+  chains: { [key: string]: Chain }
+  requests: { [key: string]: 'requestMade' | 'requestDone' }
+}
+
+export default new Vuex.Store<RootState>({
+  state: {
+    chains: {},
+    requests: {}
+  },
+  mutations: {
+    setRequest(state, { chainId, status }) {
+      state.requests[chainId] = status
+    },
+
+    setChainData(state, { chainId, chainBody }) {
+      const chain = {
+        title: chainBody.title
+      }
+
+      state.chains[chainId] = chain
+    }
+  },
+  actions: {
+    async fetchChain({ state, commit }, { chainId }): Promise<null> {
+      if (state.requests[chainId]) {
+        return null
+      }
+
+      commit('setRequest', { chainId, status: 'requestMade' })
+
+      // const url = `/api/v0/getChain/${chainId}`
+      // const response = await fetch(url)
+      // const chainBody = response.json()
+      const chainBody = {
+        title: 'Chickesdsdn',
+        description: 'This is a chicken!'
+      }
+
+      commit('setRequest', { chainId, status: 'requestDone' })
+      commit('setChainData', { chainId, chainBody })
+      return null
+    }
+  }
 })
