@@ -113,7 +113,38 @@
             </v-timeline-item>
           </v-timeline>
         </v-tab-item>
-        <v-tab-item>Farm</v-tab-item>
+        <v-tab-item>
+          <p class="headline">Description</p>
+          <p class="heading">
+            There were fields all around, interrupted only by a steep mountain
+            cliff, which casted its shadow on the fields in the morning. All
+            around you sheep and cows frolicked and loitered in the secluded
+            pastures, and touring around most fields ran a muddy road. The road
+            made its way to a traditional ranch after passing a simple welcome
+            sign. The ranch was in need of a coat of paint, but otherwise in
+            great condition. A milking facility stood in the corner of the
+            courtyard, a couple of dogs rested under the tree in the center of
+            the courtyard, and a small plot of land was used for a breathtaking
+            flower garden. The farm had a tranquil feel to it, there was just
+            something about the farm that felt very intimate and welcoming.
+          </p>
+
+          <p class="headline">Licenses</p>
+
+          <v-card>
+            <v-list>
+              <v-list-tile :href="'/license/' + chainId">
+                <v-list-tile-content>
+                  <v-list-tile-title>Better Life License</v-list-tile-title>
+                </v-list-tile-content>
+
+                <v-list-tile-action>
+                  <v-icon>info</v-icon>
+                </v-list-tile-action>
+              </v-list-tile>
+            </v-list>
+          </v-card>
+        </v-tab-item>
       </v-tabs>
     </v-card>
   </v-card>

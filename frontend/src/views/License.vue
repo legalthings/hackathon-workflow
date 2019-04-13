@@ -1,7 +1,7 @@
 <template>
   <v-card flat class="mx-auto elevation-16 main" max-width="60rem">
     <v-toolbar flat color="white">
-      <v-btn icon to="/">
+      <v-btn icon :href="'/chain/' + chainId">
         <v-icon>keyboard_arrow_left</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
@@ -110,16 +110,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Watch, Prop } from 'vue-property-decorator'
-// @ts-ignore
-import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
 
-@Component({
-  components: {
-    LMap,
-    LTileLayer,
-    LMarker
-  }
-})
+@Component
 export default class License extends Vue {
   @Prop(String) readonly chainId!: string
 }
