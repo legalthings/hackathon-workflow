@@ -1,5 +1,5 @@
 {
-  "name": "FoodFlow backend",
+  "name": "foodflow-backend",
   "version": "0.0.1",
   "description": "Backend for the FoodFlow app",
   "main": "dist",
