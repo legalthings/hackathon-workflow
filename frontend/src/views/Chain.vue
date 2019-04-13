@@ -120,6 +120,33 @@
               </td>
             </template>
           </v-data-table>
+
+          <p class="headline mt-5">Licenses &amp; Certificates</p>
+
+          <v-card>
+            <v-list three-line>
+              <v-list-tile :to="'/license/' + chainId">
+                <v-list-tile-content>
+                  <img
+                    width="150px"
+                    :src="require('../assets/better-life-2.png')"
+                    aspect-ratio="1.2"
+                    alt="Better Life License"
+                  />
+                </v-list-tile-content>
+
+                <v-list-tile-content>
+                  <v-list-tile-title
+                    ><p>Better Life License</p></v-list-tile-title
+                  >
+                </v-list-tile-content>
+
+                <v-list-tile-action>
+                  <v-icon>info</v-icon>
+                </v-list-tile-action>
+              </v-list-tile>
+            </v-list>
+          </v-card>
         </v-tab-item>
 
         <v-tab-item class="ma-3">
@@ -136,11 +163,14 @@
                 </v-flex>
                 <v-spacer></v-spacer>
                 <v-btn
+                  class="mt-3"
+                  small
                   href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
                   >Explore</v-btn
                 >
               </v-layout>
             </v-timeline-item>
+
             <v-timeline-item color="pink" small>
               <v-layout pt-3>
                 <v-flex>
@@ -149,39 +179,44 @@
                 </v-flex>
                 <v-spacer></v-spacer>
                 <v-btn
+                  class="mt-3"
+                  small
                   href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
                   >Explore</v-btn
                 >
               </v-layout>
             </v-timeline-item>
 
-            <v-timeline-item color="warning lighten-3" small>
-              <v-layout wrap pt-3>
+            <v-timeline-item color="yellow" small>
+              <v-layout pt-3>
                 <v-flex>
                   <strong>Transporter</strong>
-                  <div class="caption mb-2">
-                    The processec greyduck meat gets transported to the
-                    processor.
+                  <div class="caption">
+                    The greyduck meat gets transported to the processor.
                   </div>
                 </v-flex>
                 <v-spacer></v-spacer>
                 <v-btn
+                  class="mt-3"
+                  small
                   href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
                   >Explore</v-btn
                 >
               </v-layout>
             </v-timeline-item>
 
-            <v-timeline-item color="teal lighten-3" small>
-              <v-layout wrap pt-3>
+            <v-timeline-item color="teal" small>
+              <v-layout pt-3>
                 <v-flex>
                   <strong>Processor</strong>
-                  <div class="caption mb-2">
-                    greyduck gets processed into batches and finalized for sale.
+                  <div class="caption">
+                    Greyduck gets processed into batches and finalized for sale.
                   </div>
                 </v-flex>
                 <v-spacer></v-spacer>
                 <v-btn
+                  class="mt-3"
+                  small
                   href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
                   >Explore</v-btn
                 >
@@ -198,6 +233,8 @@
                 </v-flex>
                 <v-spacer></v-spacer>
                 <v-btn
+                  class="mt-3"
+                  small
                   href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
                   >Explore</v-btn
                 >
@@ -223,28 +260,6 @@
 
           <v-card>
             <v-list three-line>
-              <v-list-tile :to="'/license/' + chainId">
-                <v-list-tile-content>
-                  <img
-                    width="150px"
-                    :src="require('../assets/better-life-2.png')"
-                    aspect-ratio="1.2"
-                    alt="Better Life License"
-                  />
-                </v-list-tile-content>
-
-                <v-list-tile-content>
-                  <v-list-tile-title
-                    ><p>Better Life License</p></v-list-tile-title
-                  >
-                </v-list-tile-content>
-
-                <v-list-tile-action>
-                  <v-icon>info</v-icon>
-                </v-list-tile-action>
-              </v-list-tile>
-              <v-divider></v-divider>
-
               <v-list-tile :to="'/certificate/' + chainId">
                 <v-list-tile-content>
                   <img
