@@ -165,12 +165,12 @@ class NutrecoHelper {
 
   async createKYCChain(account, seed, signkey, actorInfo, nodeAddress) {
     const chain = account.createEventChain(seed);
-    const identityEvent = this.createIdentity(account, 'inspector', signkey, nodeAddress);
+    const identityEvent = this.createIdentity(account, 'Nutreco', signkey, nodeAddress);
     identityEvent.addTo(chain).signWith(account);
     await this.sendChain(account, chain);
 
 
-    const scenario = require('../../../scenarios/issue_certificate.json');
+    const scenario = require('../../../scenarios/supply_chain.json');
     const scenarioEvent = new Event(scenario);
     scenarioEvent.addTo(chain).signWith(account);
     await this.sendChain(account, chain);
@@ -190,15 +190,15 @@ class NutrecoHelper {
         key: 'start'
       },
       actor: {
-        key: 'inspector',
+        key: 'nutreco',
         id: account.id
       },
       key,
       data: actorInfo
     };
 
-    const startEvent = new Event(response);
-    startEvent.addTo(chain).signWith(account);
+    const inviteActorsEvent = new Event(response);
+    inviteActorsEvent.addTo(chain).signWith(account);
     return chain;
   }
 
