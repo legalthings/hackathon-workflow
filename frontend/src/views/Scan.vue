@@ -3,6 +3,7 @@
     <v-layout row wrap justify-content-space-between>
       <v-flex xs12>
         <v-img
+          data-cy="logo"
           contain
           class="logo"
           width="100%"

@@ -15,7 +15,7 @@ class ChainModel {
     return this.lto.createAccountFromExistingPhrase(seed);
   }
 
-  async sendRequest( path, method, data, qs, strategy) {
+  getRequestHeaders(path, method) {
     const date = (new Date()).toUTCString();
 
     const headers = {
@@ -26,6 +26,11 @@ class ChainModel {
 
     const signature = new HTTPSignature(req, ['(request-target)', 'date']);
     headers.authorization = `Signature ${signature.signWith(this.account)}`;
+    return headers;
+  }
+
+  async sendRequest( path, method, data) {
+    const headers = this.getRequestHeaders(path, method);
 
     const requestOptions = {
       method,
@@ -38,9 +43,6 @@ class ChainModel {
       requestOptions.json = data;
     }
 
-    if (qs) {
-      requestOptions.qs = qs;
-    }
     const resp = await request(requestOptions);
     return resp;
   }
