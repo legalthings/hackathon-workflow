@@ -1,4 +1,7 @@
-const proxyUrls = ['^/api']
+const proxyUrls = [
+  '^/api',
+  '^/signrequest-callback'
+]
 const proxy = {}
 proxyUrls.forEach(route => {
   proxy[route] = {

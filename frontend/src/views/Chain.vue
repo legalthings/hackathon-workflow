@@ -14,47 +14,86 @@
       </v-btn>
     </v-toolbar>
 
-    <v-card class="mx-3 my-5">
-      <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75"> </v-img>
+    <v-tabs-items v-model="selectedTab">
+      <v-tab-item>
+        <v-card class="mx-3 my-5">
+          <v-img
+            :src="require('../assets/sample_product.jpg')"
+            aspect-ratio="1.75"
+          />
 
-      <v-card-title primary-title>
-        <div>
-          <h4 class="font-weight-bold">#1283SJ2</h4>
-          <h3 class="headline mb-2">Greyhound Farm</h3>
-          <div>
-            Greyhound coyote farm specializes coyote meat and coyote meat only.
+          <v-card-title>
+            <h3 class="headline mb-2">Greyduck Meat</h3>
+
+            <v-spacer></v-spacer>
+            <h4 class="font-weight-bold">#1283SJ2</h4>
+          </v-card-title>
+
+          <v-card-text>
+            The meat is tastey, delicious and melts in your mouth like those
+            gummies Odyssey gave us.
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+
+      <v-tab-item>
+        <v-card class="mx-3 my-5">
+          <v-img
+            :src="require('../assets/sample_product.jpg')"
+            aspect-ratio="1.75"
+          />
+
+          <v-card-title>
+            <h3 class="headline mb-2">Greyduck Farm</h3>
+
+            <v-spacer></v-spacer>
+            <h4 class="font-weight-bold">#1283SJ2</h4>
+          </v-card-title>
+
+          <v-card-text>
+            Greyduck coyote farm specializes coyote meat and coyote meat only.
             The meat is widely recognized and generally considered to be the
             most tender meat in the entire world.
-          </div>
-        </div>
-      </v-card-title>
-    </v-card>
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+
+      <v-tab-item>
+        <v-card class="mx-3 my-5">
+          <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
+
+          <v-card-title>
+            <h3 class="headline mb-2">Greyduck Farm</h3>
+
+            <v-spacer></v-spacer>
+            <h4 class="font-weight-bold">#1283SJ2</h4>
+          </v-card-title>
+
+          <v-card-text>
+            Greyduck coyote farm specializes coyote meat and coyote meat only.
+            The meat is widely recognized and generally considered to be the
+            most tender meat in the entire world.
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+    </v-tabs-items>
 
     <v-card flat>
-      <v-tabs grow class="tabs">
+      <v-tabs grow class="tabs" v-model="selectedTab">
         <v-tab>Product</v-tab>
         <v-tab>Journey</v-tab>
         <v-tab>Farm</v-tab>
-
-        <v-tab-item><h3>Product</h3></v-tab-item>
-
+      </v-tabs>
+      <v-tabs-items v-model="selectedTab">
         <v-tab-item>
-          <div id="map">
-            <l-map :zoom="zoom" :center="center">
-              <l-tile-layer
-                :url="url"
-                :attribution="attribution"
-              ></l-tile-layer>
-              <l-marker :lat-lng="marker"></l-marker>
-            </l-map>
-          </div>
+          <p class="title mb-4">Description</p>
+        </v-tab-item>
 
+        <v-tab-item class="ma-3">
+          <p class="title mb-4">Timeline</p>
           <v-timeline align-top dense>
             <v-timeline-item color="pink" small>
               <v-layout pt-3>
-                <v-flex xs3>
-                  <strong>5pm</strong>
-                </v-flex>
                 <v-flex>
                   <strong>New Icon</strong>
                   <div class="caption">Mobile App</div>
@@ -64,36 +103,15 @@
 
             <v-timeline-item color="teal lighten-3" small>
               <v-layout wrap pt-3>
-                <v-flex xs3>
-                  <strong>3-4pm</strong>
-                </v-flex>
                 <v-flex>
                   <strong>Design Stand Up</strong>
                   <div class="caption mb-2">Hangouts</div>
-                  <v-avatar>
-                    <v-img
-                      src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Kurt&hairColor=Red&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Skull&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown"
-                    ></v-img>
-                  </v-avatar>
-                  <v-avatar>
-                    <v-img
-                      src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=Black&eyeType=Default&eyebrowType=FlatNatural&mouthType=Default&skinColor=Tanned"
-                    ></v-img>
-                  </v-avatar>
-                  <v-avatar>
-                    <v-img
-                      src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairMiaWallace&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Pale"
-                    ></v-img>
-                  </v-avatar>
                 </v-flex>
               </v-layout>
             </v-timeline-item>
 
             <v-timeline-item color="pink" small>
               <v-layout pt-3>
-                <v-flex xs3>
-                  <strong>12pm</strong>
-                </v-flex>
                 <v-flex>
                   <strong>Lunch break</strong>
                 </v-flex>
@@ -102,9 +120,6 @@
 
             <v-timeline-item color="teal lighten-3" small>
               <v-layout pt-3>
-                <v-flex xs3>
-                  <strong>9-11am</strong>
-                </v-flex>
                 <v-flex>
                   <strong>Finish Home Screen</strong>
                   <div class="caption">Web App</div>
@@ -113,8 +128,52 @@
             </v-timeline-item>
           </v-timeline>
         </v-tab-item>
-        <v-tab-item>Farm</v-tab-item>
-      </v-tabs>
+        <v-tab-item class="ma-3 pb-4">
+          <div v-if="farmLocation" class="map">
+            <GmapMap
+              :center="farmLocation.center"
+              :zoom="18"
+              map-type-id="hybrid"
+              style="width: 100%; height: 100%"
+            >
+              <GmapMarker
+                :position="farmLocation.center"
+                :clickable="false"
+                :draggable="false"
+              />
+            </GmapMap>
+          </div>
+          <p class="headline mt-4">Description</p>
+          <p class="heading">
+            There were fields all around, interrupted only by a steep mountain
+            cliff, which casted its shadow on the fields in the morning. All
+            around you sheep and cows frolicked and loitered in the secluded
+            pastures, and touring around most fields ran a muddy road. The road
+            made its way to a traditional ranch after passing a simple welcome
+            sign. The ranch was in need of a coat of paint, but otherwise in
+            great condition. A milking facility stood in the corner of the
+            courtyard, a couple of dogs rested under the tree in the center of
+            the courtyard, and a small plot of land was used for a breathtaking
+            flower garden. The farm had a tranquil feel to it, there was just
+            something about the farm that felt very intimate and welcoming.
+          </p>
+          <p class="headline">Licenses</p>
+
+          <v-card>
+            <v-list>
+              <v-list-tile :href="'/license/' + chainId">
+                <v-list-tile-content>
+                  <v-list-tile-title>Better Life License</v-list-tile-title>
+                </v-list-tile-content>
+
+                <v-list-tile-action>
+                  <v-icon>info</v-icon>
+                </v-list-tile-action>
+              </v-list-tile>
+            </v-list>
+          </v-card>
+        </v-tab-item>
+      </v-tabs-items>
     </v-card>
   </v-card>
 </template>
@@ -122,18 +181,14 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Watch, Prop } from 'vue-property-decorator'
-// @ts-ignore
-import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
 
 @Component({
-  components: {
-    LMap,
-    LTileLayer,
-    LMarker
-  }
+  components: {}
 })
 export default class Chain extends Vue {
   @Prop(String) readonly chainId!: string
+
+  selectedTab: number = 0
 
   get chain() {
     const { chainId } = this
@@ -143,21 +198,24 @@ export default class Chain extends Vue {
 
     return this.$store.state.chains[chainId]
   }
+
+  get farmLocation() {
+    return {
+      center: {
+        lat: 53.2103659,
+        lng: 6.5374214
+      }
+    }
+  }
 }
 </script>
 
-<style>
+<style scoped>
 .main {
   background-image: linear-gradient(-90deg, #7daef4 0%, #4776e6 100%);
 }
 
-.tabs .v-window {
-  padding: 10px;
-}
-
-#map {
-  height: 200px;
-  width: 100%;
-  margin: 0;
+.map {
+  height: 400px;
 }
 </style>
