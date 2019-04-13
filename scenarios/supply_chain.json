@@ -1,0 +1,694 @@
+{
+  "$schema": "https://specs.livecontracts.io/v0.1.0/scenario/schema.json#",
+  "id": "lt:/scenarios/bd2a0325-de2a-4a0d-940a-8095050e1571",
+  "title": "Nutreco Supply Chain",
+  "actors": {
+    "nutreco": {
+      "title": "Nutreco",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "nutreco"
+    },
+    "egg_chickens": {
+      "title": "Egg chickens",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "Egg chickens"
+    },
+    "hatcher": {
+      "title": "Hatcher",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "hatcher"
+    },
+    "eat_chickens": {
+      "title": "Eat chickens",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "eat_chickens"
+    },
+    "slaughterhouse": {
+      "title": "Slaughterhouse",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "slaughterhouse"
+    },
+    "supermarket": {
+      "title": "Supermarket",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "supermarket"
+    },
+    "food_transporter_1": {
+      "title": "Food transporter 1",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "food_transporter_1"
+    },
+    "food_transporter_2": {
+      "title": "Food transporter 2",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "food_transporter_2"
+    },
+    "egg_transporter": {
+      "title": "Egg transporter",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "Egg transporter"
+    },
+    "chicken_transporter_1": {
+      "title": "Chickem transporter 1",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "chicken_transporter_1"
+    },
+    "chicken_transporter_2": {
+      "title": "Chicken transporter 2",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "chicken_transporter_2"
+    },
+    "meat_transporter_1": {
+      "title": "Meat transporter 1",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "meat_transporter_1"
+    },
+    "meat_transporter_2": {
+      "title": "Meat transporter 2",
+      "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
+      "role": "meat_transporter_2"
+    }
+  },
+  "assets": {},
+  "states": {
+    ":initial": {
+      "actions": [
+        "invite_actors"
+      ],
+      "transitions": [
+        {
+          "action": "invite_actors",
+          "transition": "invited_actors"
+        }
+      ]
+    },
+    "invited_actors": {
+      "actions": [
+        "food_transport_1_leaving"
+      ],
+      "transitions": [
+        {
+          "action": "food_transport_1_leaving",
+          "transition": "sent_food_egg_chickens"
+        }
+      ]
+    },
+    "sent_food_egg_chickens": {
+      "actions": [
+        "food_transport_1_arriving"
+      ],
+      "transitions": [
+        {
+          "action": "food_transport_1_arriving",
+          "transition": "received_food_egg_chickens"
+        }
+      ]
+    },
+    "received_food_egg_chickens": {
+      "actions": [
+        "lay_eggs"
+      ],
+      "transitions": [
+        {
+          "action": "lay_eggs",
+          "transition": "egg_layed"
+        }
+      ]
+    },
+    "egg_layed": {
+      "actions": [
+        "egg_transport_leaving"
+      ],
+      "transitions": [
+        {
+          "action": "egg_transport_leaving",
+          "transition": "sent_eggs"
+        }
+      ]
+    },
+    "sent_eggs": {
+      "actions": [
+        "egg_transport_arriving"
+      ],
+      "transitions": [
+        {
+          "action": "egg_transport_arriving",
+          "transition": "received_eggs"
+        }
+      ]
+    },
+    "received_eggs": {
+      "actions": [
+        "egg_hatches"
+      ],
+      "transitions": [
+        {
+          "action": "egg_hatches",
+          "transition": "egg_hatched"
+        }
+      ]
+    },
+    "egg_hatched": {
+      "actions": [
+        "food_transport_2_leaving"
+      ],
+      "transitions": [
+        {
+          "action": "food_transport_2_leaving",
+          "transition": "sent_food_eat_chickens"
+        }
+      ]
+    },
+    "sent_food_eat_chickens": {
+      "actions": [
+        "food_transport_2_arriving"
+      ],
+      "transitions": [
+        {
+          "action": "food_transport_2_arriving",
+          "transition": "received_food_eat_chickens"
+        }
+      ]
+    },
+    "received_food_eat_chickens": {
+      "actions": [
+        "chick_transport_leaving"
+      ],
+      "transitions": [
+        {
+          "action": "chick_transport_leaving",
+          "transition": "sent_hatched_chickens"
+        }
+      ]
+    },
+    "sent_hatched_chickens": {
+      "actions": [
+        "chick_transport_arriving"
+      ],
+      "transitions": [
+        {
+          "action": "chick_transport_arriving",
+          "transition": "received_hatched_chickens"
+        }
+      ]
+    },
+    "received_hatched_chickens": {
+      "actions": [
+        "feed_chicken",
+        "chicken_transport_leaving"
+      ],
+      "transitions": [
+        {
+          "action": "feed_chicken",
+          "transition": "received_hatched_chickens"
+        },
+        {
+          "action": "chicken_transport_leaving",
+          "transition": "sent_food_eat_chickens"
+        }
+      ]
+    },
+    "sent_eat_chickens": {
+      "actions": [
+        "chicken_transport_arriving"
+      ],
+      "transitions": [
+        {
+          "action": "chicken_transport_arriving",
+          "transition": "received_eat_chickens"
+        }
+      ]
+    },
+    "received_eat_chickens": {
+      "actions": [
+        "slaughter_chicken"
+      ],
+      "transitions": [
+        {
+          "action": "slaughter_chicken",
+          "transition": "chicken_slaughtered"
+        }
+      ]
+    },
+    "chicken_slaughtered": {
+      "actions": [
+        "meat_transport_1_leaving"
+      ],
+      "transitions": [
+        {
+          "action": "meat_transport_1_leaving",
+          "transition": "sent_meat_1"
+        }
+      ]
+    },
+    "sent_meat_1": {
+      "actions": [
+        "meat_transport_1_arriving"
+      ],
+      "transitions": [
+        {
+          "action": "meat_transport_1_arriving",
+          "transition": "received_meat_1"
+        }
+      ]
+    },
+    "received_meat_1": {
+      "actions": [
+        "meat_transport_2_leaving"
+      ],
+      "transitions": [
+        {
+          "action": "meat_transport_2_leaving",
+          "transition": "sent_meat_2"
+        }
+      ]
+    },
+    "sent_meat_2": {
+      "actions": [
+        "meat_transport_2_arriving"
+      ],
+      "transitions": [
+        {
+          "action": "meat_transport_2_arriving",
+          "transition": ":success"
+        }
+      ]
+    }
+  },
+  "actions": {
+    "invite_actors": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#event",
+      "actor": "inspector",
+      "body": [
+        {
+          "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
+          "id": {
+            "<ref>": "actors.egg_chickens.id"
+          },
+          "info": {
+            "<ref>": "actors.egg_chickens.info"
+          },
+          "signkeys": {
+            "<ref>": "actors.egg_chickens.signkeys"
+          },
+          "node": {
+            "<ref>": "actors.egg_chickens.node"
+          }
+        },
+        {
+          "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
+          "id": {
+            "<ref>": "actors.slaughterhouse.id"
+          },
+          "info": {
+            "<ref>": "actors.slaughterhouse.info"
+          },
+          "signkeys": {
+            "<ref>": "actors.slaughterhouse.signkeys"
+          },
+          "node": {
+            "<ref>": "actors.slaughterhouse.node"
+          }
+        },
+        {
+          "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
+          "id": {
+            "<ref>": "actors.supermarket.id"
+          },
+          "info": {
+            "<ref>": "actors.supermarket.info"
+          },
+          "signkeys": {
+            "<ref>": "actors.supermarket.signkeys"
+          },
+          "node": {
+            "<ref>": "actors.supermarket.node"
+          }
+        },
+        {
+          "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
+          "id": {
+            "<ref>": "actors.eat_chickens.id"
+          },
+          "info": {
+            "<ref>": "actors.eat_chickens.info"
+          },
+          "signkeys": {
+            "<ref>": "actors.eat_chickens.signkeys"
+          },
+          "node": {
+            "<ref>": "actors.eat_chickens.node"
+          }
+        },
+        {
+          "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
+          "id": {
+            "<ref>": "actors.food_transporter_1.id"
+          },
+          "info": {
+            "<ref>": "actors.food_transporter_1.info"
+          },
+          "signkeys": {
+            "<ref>": "actors.food_transporter_1.signkeys"
+          },
+          "node": {
+            "<ref>": "actors.food_transporter_1.node"
+          }
+        },
+        {
+          "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
+          "id": {
+            "<ref>": "actors.food_transporter_2.id"
+          },
+          "info": {
+            "<ref>": "actors.food_transporter_2.info"
+          },
+          "signkeys": {
+            "<ref>": "actors.food_transporter_2.signkeys"
+          },
+          "node": {
+            "<ref>": "actors.food_transporter_2.node"
+          }
+        },
+        {
+          "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
+          "id": {
+            "<ref>": "actors.egg_transporter.id"
+          },
+          "info": {
+            "<ref>": "actors.egg_transporter.info"
+          },
+          "signkeys": {
+            "<ref>": "actors.egg_transporter.signkeys"
+          },
+          "node": {
+            "<ref>": "actors.egg_transporter.node"
+          }
+        },
+        {
+          "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
+          "id": {
+            "<ref>": "actors.chicken_transporter_.id"
+          },
+          "info": {
+            "<ref>": "actors.chicken_transporter_2.info"
+          },
+          "signkeys": {
+            "<ref>": "actors.chicken_transporter_2.signkeys"
+          },
+          "node": {
+            "<ref>": "actors.chicken_transporter_2.node"
+          }
+        },
+        {
+          "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
+          "id": {
+            "<ref>": "actors.chicken_transporter_2.id"
+          },
+          "info": {
+            "<ref>": "actors.chicken_transporter_2.info"
+          },
+          "signkeys": {
+            "<ref>": "actors.chicken_transporter_2.signkeys"
+          },
+          "node": {
+            "<ref>": "actors.chicken_transporter_2.node"
+          }
+        },
+        {
+          "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
+          "id": {
+            "<ref>": "actors.meat_transporter_1.id"
+          },
+          "info": {
+            "<ref>": "actors.meat_transporter_1.info"
+          },
+          "signkeys": {
+            "<ref>": "actors.meat_transporter_1.signkeys"
+          },
+          "node": {
+            "<ref>": "actors.meat_transporter_1.node"
+          }
+        },
+        {
+          "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
+          "id": {
+            "<ref>": "actors.meat_transporter_2.id"
+          },
+          "info": {
+            "<ref>": "actors.meat_transporter_2.info"
+          },
+          "signkeys": {
+            "<ref>": "actors.meat_transporter_2.signkeys"
+          },
+          "node": {
+            "<ref>": "actors.meat_transporter_2.node"
+          }
+        }
+      ],
+      "responses": {
+        "ok": {
+          "display": "never"
+        },
+        "error": {
+          "display": "always",
+          "title": "Failed to add the actors"
+        }
+      }
+    },
+    "food_transport_1_leaving": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "food_transporter_1",
+      "responses": {
+        "ok": {
+          "title": "Egg chicken food left",
+          "update": {
+            "select": "assets.food_transporter_1_leaving.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "food_transport_1_arriving": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "food_transporter_1",
+      "responses": {
+        "ok": {
+          "title": "Egg chicken food arrived",
+          "update": {
+            "select": "assets.food_transporter_1_arrived.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "lay_eggs": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "egg_chickens",
+      "responses": {
+        "ok": {
+          "title": "Chickens layed eggs",
+          "update": {
+            "select": "assets.lay_eggs.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "egg_transport_leaving: {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "egg_transporter",
+      "responses": {
+        "ok": {
+          "title": "Egg transport left",
+          "update": {
+            "select": "assets.egg_transporter_leaving.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "egg_transport_arriving: {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "egg_transporter",
+      "responses": {
+        "ok": {
+          "title": "Egg transport arrived",
+          "update": {
+            "select": "assets.egg_transporter_arriving.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "egg_hatches": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "hatcher",
+      "responses": {
+        "ok": {
+          "title": "Egg hatches",
+          "update": {
+            "select": "assets.egg_hatches.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "food_transport_2_leaving": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "food_transporter_2",
+      "responses": {
+        "ok": {
+          "title": "Eat chicken food left",
+          "update": {
+            "select": "assets.food_transporter_2_leaving.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "food_transport_2_arriving: {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "food_transporter_2",
+      "responses": {
+        "ok": {
+          "title": "Eat chicken food arrived",
+          "update": {
+            "select": "assets.food_transporter_2_arriving.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "chick_transport_leaving": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "chicken_transporter_1",
+      "responses": {
+        "ok": {
+          "title": "Chick transport left",
+          "update": {
+            "select": "assets.chicken_transporter_1_leaving.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "chick_transport_arriving": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "chicken_transporter_1",
+      "responses": {
+        "ok": {
+          "title": "Chick transport arrived",
+          "update": {
+            "select": "assets.chicken_transporter_1_arriving.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "feed_chicken": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "eat_chickens",
+      "responses": {
+        "ok": {
+          "title": "Chicken fed",
+          "update": {
+            "select": "assets.chicken_fed.data",
+            "patch": true
+          }
+        }
+      }
+    },
+    "chicken_transport_leaving": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "chicken_transporter_2",
+      "responses": {
+        "ok": {
+          "title": "Eat chickens transporter left",
+          "update": {
+            "select": "assets.chicken_transporter_2_leaving.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "chicken_transport_arriving": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "chicken_transporter_2",
+      "responses": {
+        "ok": {
+          "title": "Eat chickens transport arrived",
+          "update": {
+            "select": "assets.chicken_transporter_2_arriving.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "slaughter_chicken": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "slaughterhouse",
+      "responses": {
+        "ok": {
+          "title": "Chicken slaughtered",
+          "update": {
+            "select": "assets.slaughterhouse.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "meat_transport_leaving: {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "meat_transporter_1",
+      "responses": {
+        "ok": {
+          "title": "Meat transport left",
+          "update": {
+            "select": "assets.meat_transporter_1_leaving.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "meat_transport_arriving": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "meat_transporter_1",
+      "responses": {
+        "ok": {
+          "title": "Meat transport arrived",
+          "update": {
+            "select": "assets.meat_transporter_1_arriving.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "meat_transport_2_leaving: {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "meat_transporter_2",
+      "responses": {
+        "ok": {
+          "title": "Meat left for supermarket",
+          "update": {
+            "select": "assets.meat_transporter_2_leaving.data",
+            "patch": false
+          }
+        }
+      }
+    },
+    "meat_transport_2_arriving: {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "meat_transporter_2",
+      "responses": {
+        "ok": {
+          "title": "Meat arrived at supermarket",
+          "update": {
+            "select": "assets.meat_transporter_2_arriving.data",
+            "patch": false
+          }
+        }
+      }
+    }
+  }
+}
