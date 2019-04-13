@@ -4,7 +4,7 @@ import ChainModel from '../models/chains';
 export default ({ config, db }) => resource({
 
 	/** Property name to store preloaded entity on `request`. */
-	id : 'facet',
+	id : 'chain',
 
 	/** For requests with an `id`, you can auto-load the entity.
 	 *  Errors terminate the request, success sets `req[id] = data`.
@@ -12,9 +12,19 @@ export default ({ config, db }) => resource({
 
 	load(req, id, callback) {
 		const chainModel = new ChainModel();
-		let chain = chainModel.loadChain(id),
-			err = chain ? null : 'Not found';
-		callback(err, chain);
+		let chainProm = chainModel.loadChain(id),
+			chain = null,
+			err = null;
+		chainProm.then(function (result) {
+			chain = result;
+			callback(err, chain);
+		}, function (err) {
+			err = err.message;
+			callback(err, chain);
+		}).catch(function () {
+			err = 'Error';
+			callback(err, chain);
+		})
 	},
 
 	read({ chain }, res) {
