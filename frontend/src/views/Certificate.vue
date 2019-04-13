@@ -147,6 +147,10 @@ export default class Certificate extends Vue {
   background-image: linear-gradient(-90deg, #7daef4 0%, #4776e6 100%);
 }
 
+.main > .v-card {
+  margin-bottom: 5px;
+}
+
 .tabs .v-window {
   padding: 10px;
 }
