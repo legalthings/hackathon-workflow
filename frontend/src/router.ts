@@ -29,7 +29,7 @@ export default new Router({
       props: true
     },
     {
-      path: '/certficate/:chainId',
+      path: '/certificate/:chainId',
       name: 'certificate',
       component: Certificate,
       props: true

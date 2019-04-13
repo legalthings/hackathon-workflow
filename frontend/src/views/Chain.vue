@@ -160,13 +160,25 @@
             flower garden. The farm had a tranquil feel to it, there was just
             something about the farm that felt very intimate and welcoming.
           </p>
-          <p class="headline">Licenses</p>
+          <p class="headline">Licenses &amp; Certificates</p>
 
           <v-card>
             <v-list>
               <v-list-tile :href="'/license/' + chainId">
                 <v-list-tile-content>
                   <v-list-tile-title>Better Life License</v-list-tile-title>
+                </v-list-tile-content>
+
+                <v-list-tile-action>
+                  <v-icon>info</v-icon>
+                </v-list-tile-action>
+              </v-list-tile>
+
+              <v-list-tile :href="'/certificate/' + chainId">
+                <v-list-tile-content>
+                  <v-list-tile-title
+                    >Global Animal Parnership</v-list-tile-title
+                  >
                 </v-list-tile-content>
 
                 <v-list-tile-action>
