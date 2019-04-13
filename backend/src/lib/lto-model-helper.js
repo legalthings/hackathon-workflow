@@ -1,5 +1,6 @@
 import {LTO, HTTPSignature, Request} from 'lto-api';
 import request from 'request-promise';
+import bs58 from 'bs58'
 
 class LtoModel {
 
@@ -26,6 +27,11 @@ class LtoModel {
     const signature = new HTTPSignature(req, ['(request-target)', 'date']);
     headers.authorization = `Signature ${signature.signWith(this.account)}`;
     return headers;
+  }
+
+
+  static unpackBase58Event(base58EventData){
+    return JSON.parse(bs58.decode(base58EventData).toString());
   }
 
   /**
