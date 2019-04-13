@@ -26,7 +26,7 @@
             <h3 data-cy="chain-title" class="headline mb-2">Greyduck Meat</h3>
 
             <v-spacer></v-spacer>
-            <v-chip label>#1283SJ2</v-chip>
+            <v-chip label>#41B3SA2</v-chip>
           </v-card-title>
 
           <v-card-text>
