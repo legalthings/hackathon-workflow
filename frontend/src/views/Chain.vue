@@ -100,7 +100,17 @@
               <td class="text-xs-left">{{ props.item.title }}</td>
               <td class="text-xs-right">{{ props.item.item }}</td>
               <td class="text-xs-right">{{ props.item.hundred }}</td>
-              <td class="text-xs-right">{{ props.item.daily }}</td>
+
+              <td class="text-xs-right">
+                <v-progress-linear
+                  color="success"
+                  height="5"
+                  :value="props.item.daily"
+                ></v-progress-linear>
+              </td>
+              <td class="text-xs-left">
+                {{ props.item.daily }}
+              </td>
             </template>
           </v-data-table>
         </v-tab-item>
@@ -301,7 +311,8 @@ export default class Chain extends Vue {
     },
     { text: 'Serving (50g.)', align: 'right', value: 'item' },
     { text: '100g.', align: 'right', value: 'hundred' },
-    { text: 'Daily Value*', align: 'right', value: 'daily' }
+    { text: 'Daily Value*', align: 'right', value: 'daily' },
+    { text: '', align: 'right', value: 'daily' }
   ]
 
   nutritionItems = [
