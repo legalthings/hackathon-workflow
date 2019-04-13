@@ -10,7 +10,12 @@
         />
       </v-flex>
 
-      <v-flex xs12 text-xs-center class="mx-4 py-5 mb-5">
+      <v-flex
+        xs12
+        text-xs-center
+        class="mx-4 py-5 mb-5"
+        style="margin-top: 50px;"
+      >
         <div v-if="!scanning">
           <a @click.prevent="scanning = true">
             <v-img
@@ -37,20 +42,6 @@
 
       <v-flex class="xs12" text-xs-center> </v-flex>
     </v-layout>
-
-    <v-bottom-nav :value="true" absolute shift>
-      <v-btn dark>
-        <span>Menu</span>
-        <v-icon>menu</v-icon>
-      </v-btn>
-
-      <v-spacer></v-spacer>
-
-      <v-btn dark>
-        <span>Share</span>
-        <v-icon>share</v-icon>
-      </v-btn>
-    </v-bottom-nav>
 
     <v-btn
       data-cy="start-scan-button"
@@ -144,7 +135,6 @@ export default class Home extends Vue {
 
 h1.scan {
   color: white;
-  font-size: ;
 }
 
 .float-scan {

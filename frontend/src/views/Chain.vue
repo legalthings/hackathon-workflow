@@ -12,6 +12,7 @@
       >
       </v-img>
     </v-card>
+
     <v-card>
       <v-container>
         <p class="font-weight-bold">#1283SJ2</p>
