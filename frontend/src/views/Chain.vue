@@ -14,35 +14,69 @@
       </v-btn>
     </v-toolbar>
 
-    <v-card class="mx-3 my-5">
-      <v-tabs-items v-model="selectedTab">
-        <v-tab-item>
+    <v-tabs-items v-model="selectedTab">
+      <v-tab-item>
+        <v-card class="mx-3 my-5">
           <v-img
             :src="require('../assets/sample_product.jpg')"
             aspect-ratio="1.75"
           />
-        </v-tab-item>
-        <v-tab-item>
+
+          <v-card-title>
+            <h3 class="headline mb-2">Greyduck Meat</h3>
+
+            <v-spacer></v-spacer>
+            <h4 class="font-weight-bold">#1283SJ2</h4>
+          </v-card-title>
+
+          <v-card-text>
+            The meat is tastey, delicious and melts in your mouth like those
+            gummies Odyssey gave us.
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+
+      <v-tab-item>
+        <v-card class="mx-3 my-5">
+          <v-img
+            :src="require('../assets/sample_product.jpg')"
+            aspect-ratio="1.75"
+          />
+
+          <v-card-title>
+            <h3 class="headline mb-2">Greyduck Farm</h3>
+
+            <v-spacer></v-spacer>
+            <h4 class="font-weight-bold">#1283SJ2</h4>
+          </v-card-title>
+
+          <v-card-text>
+            Greyduck coyote farm specializes coyote meat and coyote meat only.
+            The meat is widely recognized and generally considered to be the
+            most tender meat in the entire world.
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+
+      <v-tab-item>
+        <v-card class="mx-3 my-5">
           <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
-        </v-tab-item>
-        <v-tab-item>
-          <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
-        </v-tab-item>
-      </v-tabs-items>
 
-      <v-card-title>
-        <h3 class="headline mb-2">Greyhound Farm</h3>
+          <v-card-title>
+            <h3 class="headline mb-2">Greyduck Farm</h3>
 
-        <v-spacer></v-spacer>
-        <h4 class="font-weight-bold">#1283SJ2</h4>
-      </v-card-title>
+            <v-spacer></v-spacer>
+            <h4 class="font-weight-bold">#1283SJ2</h4>
+          </v-card-title>
 
-      <v-card-text>
-        Greyhound coyote farm specializes coyote meat and coyote meat only. The
-        meat is widely recognized and generally considered to be the most tender
-        meat in the entire world.
-      </v-card-text>
-    </v-card>
+          <v-card-text>
+            Greyduck coyote farm specializes coyote meat and coyote meat only.
+            The meat is widely recognized and generally considered to be the
+            most tender meat in the entire world.
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+    </v-tabs-items>
 
     <v-card flat>
       <v-tabs grow class="tabs" v-model="selectedTab">
