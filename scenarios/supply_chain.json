@@ -84,6 +84,17 @@
     },
     "invited_actors": {
       "actions": [
+        "add_food_data"
+      ],
+      "transitions": [
+        {   
+          "action": "add_food_data",
+          "transition": "food_data_added"
+        }   
+      ]
+    },
+    "food_data_added": {
+      "actions": [
         "food_transport_1_leaving"
       ],
       "transitions": [
@@ -453,6 +464,19 @@
         "error": {
           "display": "always",
           "title": "Failed to add the actors"
+        }
+      }
+    },
+    "add_food_data": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "nutreco",
+      "responses": {
+        "ok": {
+          "title": "Add food data",
+          "update": {
+            "select": "assets.food.data",
+            "patch": false
+          }
         }
       }
     },
