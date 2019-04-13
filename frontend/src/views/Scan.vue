@@ -1,23 +1,17 @@
 <template>
-  <div>
-    <v-container
-      v-if="!scanning"
-      fill-height
-      grid-list-md
-      text-xs-center
-      class="main"
-    >
-      <v-layout row wrap align-center justify-center>
-        <v-flex xs12>
-          <v-img
-            contain
-            class="logo"
-            width="100%"
-            style="margin-bottom: 15vh;"
-            :src="require('../assets/foodflow-huge.png')"
-          />
-        </v-flex>
-        <v-flex class="xs12">
+  <v-card class="main mx-auto elevation-15" max-width="60rem" height="100%">
+    <v-layout row wrap justify-content-space-between>
+      <v-flex xs12>
+        <v-img
+          contain
+          class="logo"
+          width="100%"
+          :src="require('../assets/foodflow-huge.png')"
+        />
+      </v-flex>
+
+      <v-flex xs12 text-xs-center class="mx-4 py-5 mb-5">
+        <div v-if="!scanning">
           <a @click.prevent="scanning = true">
             <v-img
               class="scan"
@@ -26,15 +20,10 @@
               :src="require('../assets/qrcode-scan.png')"
             />
 
-            <h1 class="scan display-1 mt-3">Scan your Produce</h1>
+            <h1 class="scan display-2 mt-5">Scan your Produce</h1>
           </a>
-        </v-flex>
-      </v-layout>
-    </v-container>
-
-    <v-container v-if="scanning" fill-height grid-list-md text-xs-center>
-      <v-layout row wrap>
-        <v-flex class="xs12">
+        </div>
+        <div v-if="scanning">
           <p class="error">{{ error }}</p>
           <qrcode-stream
             class="qrcode"
@@ -43,9 +32,25 @@
             @init="onInit"
             id="QRcamera"
           />
-        </v-flex>
-      </v-layout>
-    </v-container>
+        </div>
+      </v-flex>
+
+      <v-flex class="xs12" text-xs-center> </v-flex>
+    </v-layout>
+
+    <v-bottom-nav :value="true" absolute shift>
+      <v-btn dark>
+        <span>Menu</span>
+        <v-icon>menu</v-icon>
+      </v-btn>
+
+      <v-spacer></v-spacer>
+
+      <v-btn dark>
+        <span>Share</span>
+        <v-icon>share</v-icon>
+      </v-btn>
+    </v-bottom-nav>
 
     <v-btn
       data-cy="start-scan-button"
@@ -72,7 +77,7 @@
     >
       <v-icon>camera</v-icon>
     </v-btn>
-  </div>
+  </v-card>
 </template>
 
 <script lang="ts">
@@ -129,12 +134,17 @@ export default class Home extends Vue {
 </script>
 
 <style scoped>
+.main {
+  background-image: linear-gradient(-90deg, #7daef4 0%, #4776e6 100%);
+}
+
 .scan {
   margin: auto;
 }
 
 h1.scan {
   color: white;
+  font-size: ;
 }
 
 .float-scan {
@@ -143,25 +153,9 @@ h1.scan {
   bottom: 28px;
 }
 
-.qrcode {
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-  position: fixed;
-}
-
-.qrcode >>> .qrcode-stream__inner-wrapper {
-  width: 100%;
-  height: 100%;
-}
-
 .qrcode >>> .qrcode-stream__camera {
   width: 100%;
   height: 100%;
-}
-
-.main {
-  max-width: 800px;
+  border: 4px solid white;
 }
 </style>
