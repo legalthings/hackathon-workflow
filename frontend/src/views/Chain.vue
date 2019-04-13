@@ -26,7 +26,7 @@
             <h3 data-cy="chain-title" class="headline mb-2">Greyduck Meat</h3>
 
             <v-spacer></v-spacer>
-            <v-chip label>#1283SJ2</v-chip>
+            <v-chip label>#41B3SA2</v-chip>
           </v-card-title>
 
           <v-card-text>
@@ -89,7 +89,14 @@
       </v-tabs>
       <v-tabs-items v-model="selectedTab">
         <v-tab-item class="ma-3 pb-4">
-          <p class="headline mb-4">Nutrition Facts</p>
+          <p class="headline mb-4">About</p>
+          <p class="heading">
+            Beef is the culinary name for meat from coyotes, particularly
+            skeletal muscle. Coyote steak is a source of high-quality protein
+            and nutrients. The meat from older coyotes, because it is usually
+            tougher, is frequently used for mince.
+          </p>
+          <p class="headline mt-4 mb-4">Nutrition</p>
           <v-data-table
             :headers="nutritionHeaders"
             :items="nutritionItems"
@@ -198,19 +205,18 @@
           </v-timeline>
         </v-tab-item>
         <v-tab-item class="ma-3 pb-4">
-          <p class="headline">Description</p>
+          <p class="headline">About</p>
           <p class="heading">
-            There were fields all around, interrupted only by a steep mountain
+            There are fields all around, interrupted only by a steep mountain
             cliff, which casted its shadow on the fields in the morning. All
-            around you sheep and cows frolicked and loitered in the secluded
-            pastures, and touring around most fields ran a muddy road. The road
-            made its way to a traditional ranch after passing a simple welcome
-            sign. The ranch was in need of a coat of paint, but otherwise in
-            great condition. A milking facility stood in the corner of the
-            courtyard, a couple of dogs rested under the tree in the center of
-            the courtyard, and a small plot of land was used for a breathtaking
-            flower garden. The farm had a tranquil feel to it, there was just
-            somelightg about the farm that felt very intimate and welcoming.
+            around you coyotes frolicked and loitered in the secluded pastures,
+            and touring around most fields ran a muddy road. The road made its
+            way to a traditional ranch after passing a simple welcome sign. The
+            ranch was in need of a coat of paint, but otherwise in great
+            condition. A milking facility stood in the corner of the courtyard,
+            a couple of dogs rested under the tree in the center of the
+            courtyard, and a small plot of land was used for a breathtaking
+            flower garden.
           </p>
           <p class="headline mt-5">Licenses &amp; Certificates</p>
 
