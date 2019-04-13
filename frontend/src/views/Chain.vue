@@ -2,11 +2,7 @@
   <v-card class="mx-auto elevation-16" max-width="60rem">
     <v-card dark flat>
       <v-card-title class="pa-2 primary">
-        <v-btn>
-          <v-icon>mdi-menu</v-icon>
-        </v-btn>
-
-        <h3 class="title font-weight-light text-xs-center grow">
+        <h3 class="title font-weight-light text-xs-center grow mt-4 mb-4">
           Produce Overview
         </h3>
       </v-card-title>
