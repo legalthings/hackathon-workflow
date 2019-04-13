@@ -1,5 +1,5 @@
 <template>
-  <v-card class="main mx-auto elevatioin-18" max-width="60rem" height="100%">
+  <v-card class="main mx-auto elevation-15" max-width="60rem" height="100%">
     <v-layout row wrap justify-content-space-between>
       <v-flex xs12>
         <v-img
