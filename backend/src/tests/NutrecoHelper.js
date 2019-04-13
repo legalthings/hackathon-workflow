@@ -163,6 +163,45 @@ class NutrecoHelper {
     return chain;
   }
 
+  async createKYCChain(account, seed, signkey, actorInfo, nodeAddress) {
+    const chain = account.createEventChain(seed);
+    const identityEvent = this.createIdentity(account, 'inspector', signkey, nodeAddress);
+    identityEvent.addTo(chain).signWith(account);
+    await this.sendChain(account, chain);
+
+
+    const scenario = require('../../../scenarios/issue_certificate.json');
+    const scenarioEvent = new Event(scenario);
+    scenarioEvent.addTo(chain).signWith(account);
+    await this.sendChain(account, chain);
+
+    const key = scenario.actions['start'].default_response || 'ok';
+
+    const processId = chain.createProjectionId('main');
+    const response = {
+      '$schema': 'https://specs.livecontracts.io/v0.1.0/response/schema.json#',
+      process: {
+        id: `lt:/processes/${processId}`,
+        scenario: {
+          id: scenario.id + `?v=${scenarioEvent.getResourceVersion()}`,
+        }
+      },
+      action: {
+        key: 'start'
+      },
+      actor: {
+        key: 'inspector',
+        id: account.id
+      },
+      key,
+      data: actorInfo
+    };
+
+    const startEvent = new Event(response);
+    startEvent.addTo(chain).signWith(account);
+    return chain;
+  }
+
   async loadChain(account, seed, nutrecoPublicKey) {
     const chainId = this.lto.createEventChainId(nutrecoPublicKey, seed);
 

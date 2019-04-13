@@ -28,6 +28,17 @@
   "states": {
     ":initial": {
       "actions": [
+        "start"
+      ],
+      "transitions": [
+        {
+          "action": "start",
+          "transition": "started" 
+         }
+       ]
+    },
+    "started": {
+      "actions": [
         "invite_actors"
       ],
       "transitions": [
@@ -105,28 +116,6 @@
     },
     "contract_sr_created": {
       "actions": [
-        "store_signed_contract"
-      ],
-      "transitions": [
-        {
-          "action": "store_signed_contract",
-          "transition": "contract_signed"
-        }
-      ]
-    },
-    "signed_contract_stored": {
-      "actions": [
-        "store_contract_signing_log"
-      ],
-      "transitions": [
-        {
-          "action": "store_contract_signing_log",
-          "transition": "contract_signing_log_stored"
-        }
-      ]
-    },
-    "contract_signing_log_stored": {
-      "actions": [
         "create_certificate_sr_document"
       ],
       "transitions": [
@@ -149,6 +138,28 @@
     },
     "certificate_sr_created": {
       "actions": [
+        "store_signed_contract"
+      ],
+      "transitions": [
+        {
+          "action": "store_signed_contract",
+          "transition": "signed_contract_stored"
+        }
+      ]
+    },
+    "signed_contract_stored": {
+      "actions": [
+        "store_contract_signing_log"
+      ],
+      "transitions": [
+        {
+          "action": "store_contract_signing_log",
+          "transition": "contract_signing_log_stored"
+        }
+      ]
+    },
+    "contract_signing_log_stored": {
+      "actions": [
         "store_signed_certificate"
       ],
       "transitions": [
@@ -165,23 +176,35 @@
       "transitions": [
         {
           "action": "store_certificate_signing_log",
-          "transition": "certificate_signing_log_stored"
-        }
-      ]
-    },
-    "certificate_signing_log_stored": {
-      "actions": [
-        "add_certificate_to_db"
-      ],
-      "transitions": [
-        {
-          "action": "add_certificate_to_db",
           "transition": ":success"
         }
       ]
     }
   },
   "actions": {
+    "start": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "inspector",
+      "responses": {
+        "ok": {
+          "title": "Started new supply chain",
+          "update": [
+            {
+              "select": "actors.inspectee",
+              "jmespath": "{ id: '0af9f4f5-624b-437a-8f83-3ee11a12b80b', info: { name: inspectee.name }, signkeys: { user: inspectee.public_key, system: inspectee.systemkey }, node: inspectee.node }"
+            },
+            {
+              "select": "actors.reviewers",
+              "jmespath": "{ id: '1c8461cc-ad23-4ded-a638-18d2905d7130', info: { name: reviewers.name }, signkeys: { user: reviewers.public_key, system: reviewers.systemkey }, node: reviewers.node }"
+            },
+            {
+              "select": "actors.signee",
+              "jmespath": "{ id: 'fe2cf649-0527-4d36-a735-f752bcbfe83e', info: { name: signee.name }, signkeys: { user: signee.public_key, system: signee.systemkey }, node: signee.node }"
+            }
+          ]
+        }
+      }
+    },
     "invite_actors": {
       "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#event",
       "actor": "inspector",
@@ -260,17 +283,17 @@
       "actor": "reviewer",
       "responses": {
         "ok": {
-          "display": "Accept"
+          "title": "Accept"
         },
         "incomplete": {
-          "display": "Request more data",
+          "title": "Request more data",
           "update": {
             "select": "feedback.review_feedback",
             "patch": false
           }
         },
         "rejected": {
-          "display": "Reject",
+          "title": "Reject",
           "update": {
             "select": "feedback.review_feedback",
             "patch": false
