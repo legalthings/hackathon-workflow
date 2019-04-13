@@ -40,19 +40,9 @@
         <v-tab>Journey</v-tab>
         <v-tab>Farm</v-tab>
 
-        <v-tab-item><h3>Product</h3></v-tab-item>
+        <v-tab-item class="ma-3"><h3>Product</h3> </v-tab-item>
 
-        <v-tab-item>
-          <div id="map">
-            <l-map :zoom="zoom" :center="center">
-              <l-tile-layer
-                :url="url"
-                :attribution="attribution"
-              ></l-tile-layer>
-              <l-marker :lat-lng="marker"></l-marker>
-            </l-map>
-          </div>
-
+        <v-tab-item class="ma-3">
           <v-timeline align-top dense>
             <v-timeline-item color="pink" small>
               <v-layout pt-3>
@@ -117,7 +107,22 @@
             </v-timeline-item>
           </v-timeline>
         </v-tab-item>
-        <v-tab-item>Farm</v-tab-item>
+        <v-tab-item class="ma-3 pb-4">
+          <h2 class="mb-4">Farm Information</h2>
+          <div v-if="farmLocation" class="map">
+            <GmapMap
+              :center="farmLocation.center"
+              :zoom="18"
+              map-type-id="hybrid"
+              style="width: 100%; height: 100%"
+            >
+              <GmapMarker
+                :position="farmLocation.center"
+                :clickable="false"
+                :draggable="false"
+              />
+            </GmapMap></div
+        ></v-tab-item>
       </v-tabs>
     </v-card>
   </v-card>
@@ -126,15 +131,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Watch, Prop } from 'vue-property-decorator'
-// @ts-ignore
-import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
 
 @Component({
-  components: {
-    LMap,
-    LTileLayer,
-    LMarker
-  }
+  components: {}
 })
 export default class Chain extends Vue {
   @Prop(String) readonly chainId!: string
@@ -147,21 +146,24 @@ export default class Chain extends Vue {
 
     return this.$store.state.chains[chainId]
   }
+
+  get farmLocation() {
+    return {
+      center: {
+        lat: 53.2103659,
+        lng: 6.5374214
+      }
+    }
+  }
 }
 </script>
 
-<style>
+<style scoped>
 .main {
   background-image: linear-gradient(-90deg, #7daef4 0%, #4776e6 100%);
 }
 
-.tabs .v-window {
-  padding: 10px;
-}
-
-#map {
-  height: 200px;
-  width: 100%;
-  margin: 0;
+.map {
+  height: 400px;
 }
 </style>
