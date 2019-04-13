@@ -1,4 +1,5 @@
 'use-strict';
+const qrcode = require('qrcode-terminal');
 const NutrecoHelper = require('./NutrecoHelper');
 
 const accountSeed = 'some nutreco seed';
@@ -110,6 +111,9 @@ const node1 = 'http://localhost:3000';
   console.log(chain.id)
   let res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
 
+  let appUrl = `https://ddfb878d.ngrok.io/chain/${chain.id}/`;
+  console.info(`Scan the QR to go to the app url: ${appUrl}`)
+  qrcode.generate(appUrl, {small: true});
   // console.log(res);
   //await(timeout(500));
 })();
