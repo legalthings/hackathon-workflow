@@ -107,8 +107,9 @@ const node1 = 'http://localhost:3000';
   };
 
   let chain = await nutrecoHelper.createSupplyChain(nutrecoAccount, chainSeed, systemKey, actorData, nodeAddress);
+  console.log(chain.id)
   let res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
 
-  console.log(res);
+  // console.log(res);
   //await(timeout(500));
 })();
