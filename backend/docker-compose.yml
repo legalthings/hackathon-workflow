@@ -1,0 +1,71 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: legalthings/rabbitmq
+    networks:
+    - lto
+
+  mongo:
+    image: "mongo:3"
+    ports:
+    - "27018:27017"
+    networks:
+    - lto
+
+  lto-webserver:
+    container_name: webserver
+    image: legalthings/webserver:v0.1.1
+    ports:
+    - "3000:80"
+    networks:
+    - lto
+
+  legalflow:
+    container_name: legalflow
+    image: legalthings/legalflow
+    environment:
+    - APPLICATION_ENV=lto
+    - phpmemory_limit=512M
+    networks:
+    - lto
+    depends_on:
+    - mongo
+
+  legalevents:
+    container_name: legalevents
+    image: legalthings/legalevents:v0.2.1
+    environment:
+    - APPLICATION_ENV=lto
+    - phpmemory_limit=512M
+    - ANCHOR_URL=http://lto-anchor.eu-west-1.elasticbeanstalk.com
+    networks:
+    - lto
+    depends_on:
+    - mongo
+
+  event-queuer:
+    container_name: event-queuer
+    image: legalthings/event-dispatcher:v0.1.2
+    environment:
+    - NODE_ENV=lto
+    networks:
+    - lto
+    depends_on:
+    - mongo
+    - rabbitmq
+
+  event-dispatcher:
+    container_name: event-dispatcher
+    image: legalthings/event-dispatcher:v0.1.2
+    environment:
+    - NODE_ENV=lto
+    networks:
+    - lto
+    depends_on:
+    - mongo
+    - rabbitmq
+
+networks:
+  lto:
+    driver: bridge
