@@ -3,7 +3,7 @@
 describe('Scanner test', () => {
   it('Scanner page should load', () => {
     cy.visit('/')
-    cy.contains('[data-cy=start-scan-button]', 'Scan QR')
+    cy.get('[data-cy=logo]').should('exist')
     cy.get('[data-cy=qr-cam-stream]').should('not.exist')
   })
   it('Scanner should open and close', () => {

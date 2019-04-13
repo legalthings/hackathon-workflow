@@ -7,6 +7,7 @@
             <v-layout justify-center>
               <v-flex class="xs12 md6 lg4">
                 <v-img
+                  data-cy="logo"
                   contain
                   class="logo"
                   width="100%"
@@ -63,6 +64,7 @@
     </v-toolbar>
 
     <v-btn
+      data-cy="start-scan-button"
       v-if="!scanning"
       @click="scanning = true"
       class="float-scan"
@@ -74,6 +76,7 @@
       <v-icon>camera</v-icon>
     </v-btn>
     <v-btn
+      data-cy="stop-scan-button"
       v-if="scanning"
       @click="scanning = false"
       class="float-scan"
