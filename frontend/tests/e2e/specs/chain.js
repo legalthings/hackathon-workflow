@@ -3,6 +3,6 @@
 describe('Chain test', () => {
   it('Chain page should load', () => {
     cy.visit('/chain/12345')
-    cy.contains('#title', 'Your food flow')
+    cy.get('[data-cy=chain-title]').should('exist')
   })
 })

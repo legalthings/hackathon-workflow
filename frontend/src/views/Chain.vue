@@ -1,8 +1,28 @@
 <template>
   <v-container bg fill-height grid-list-md text-xs-center>
     <v-layout row wrap align-center>
-      <v-flex>
-        <p>Id {{ chainId }}</p>
+      <v-flex xs12 sm6 offset-sm3>
+        <v-card>
+          <v-img
+            src="https://cdn.vuetifyjs.com/images/cards/desert.jpg"
+            aspect-ratio="2.75"
+          ></v-img>
+
+          <v-card-title primary-title>
+            <div>
+              <h3 data-cy="chain-title" class="headline mb-0">
+                {{ chain.title }}
+              </h3>
+              <div>{{ chain.description }}</div>
+            </div>
+          </v-card-title>
+
+          <v-card-actions>
+            <v-btn flat color="orange">{{ chain.title }}</v-btn>
+            <v-btn flat color="orange">Journey</v-btn>
+            <v-btn flat color="orange">Farm</v-btn>
+          </v-card-actions>
+        </v-card>
       </v-flex>
     </v-layout>
   </v-container>
@@ -15,6 +35,13 @@ import { Component, Watch, Prop } from 'vue-property-decorator'
 @Component
 export default class Chain extends Vue {
   @Prop(String) readonly chainId!: string
+
+  get chain() {
+    return {
+      title: 'Chicken',
+      description: 'This is a chicken!'
+    }
+  }
 }
 </script>
 

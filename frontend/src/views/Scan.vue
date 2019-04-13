@@ -42,6 +42,7 @@
     </v-container>
 
     <v-btn
+      data-cy="start-scan-button"
       v-if="!scanning"
       @click="scanning = true"
       class="float-scan"
@@ -54,6 +55,7 @@
     </v-btn>
 
     <v-btn
+      data-cy="stop-scan-button"
       v-if="scanning"
       @click="scanning = false"
       class="float-scan"
