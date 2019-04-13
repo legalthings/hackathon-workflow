@@ -9,12 +9,9 @@
 import Vue from 'vue'
 import { Component, Watch } from 'vue-property-decorator'
 // @ts-ignore
-import { QrcodeStream } from 'vue-qrcode-reader'
 
 @Component({
-  components: {
-    QrcodeStream
-  }
+  components: {}
 })
 export default class Home extends Vue {}
 </script>
