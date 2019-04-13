@@ -52,7 +52,7 @@
 
           <v-card-text>
             <p class="title font-weight-light">
-              Greyduck coyote farm specializes coyote meat and coyote meat only.
+              Greyduck farm specializes greyduck meat and greyduck meat only.
               The meat is widely recognized and generally considered to be the
               most tender meat in the entire world.
             </p>
@@ -72,7 +72,7 @@
 
           <v-card-text>
             <p class="title font-weight-light">
-              Greyduck coyote farm specializes coyote meat and coyote meat only.
+              Greyduck farm specializes greyduck meat and greyduck meat only.
               The meat is widely recognized and generally considered to be the
               most tender meat in the entire world.
             </p>
@@ -91,9 +91,9 @@
         <v-tab-item class="ma-3 pb-4">
           <p class="headline mb-4">About</p>
           <p class="heading">
-            Beef is the culinary name for meat from coyotes, particularly
-            skeletal muscle. Coyote steak is a source of high-quality protein
-            and nutrients. The meat from older coyotes, because it is usually
+            Beef is the culinary name for meat from greyducks, particularly
+            skeletal muscle. greyduck steak is a source of high-quality protein
+            and nutrients. The meat from older greyducks, because it is usually
             tougher, is frequently used for mince.
           </p>
           <p class="headline mt-4 mb-4">Nutrition</p>
@@ -145,7 +145,7 @@
               <v-layout pt-3>
                 <v-flex>
                   <strong>Producer</strong>
-                  <div class="caption">Farmer raised the coyote.</div>
+                  <div class="caption">Farmer raised the greyduck.</div>
                 </v-flex>
                 <v-spacer></v-spacer>
                 <v-btn
@@ -160,7 +160,8 @@
                 <v-flex>
                   <strong>Transporter</strong>
                   <div class="caption mb-2">
-                    The processec coyote meat gets transported to the processor.
+                    The processec greyduck meat gets transported to the
+                    processor.
                   </div>
                 </v-flex>
                 <v-spacer></v-spacer>
@@ -176,7 +177,7 @@
                 <v-flex>
                   <strong>Processor</strong>
                   <div class="caption mb-2">
-                    Coyote gets processed into batches and finalized for sale.
+                    greyduck gets processed into batches and finalized for sale.
                   </div>
                 </v-flex>
                 <v-spacer></v-spacer>
@@ -192,7 +193,7 @@
                 <v-flex>
                   <strong>Distributor</strong>
                   <div class="caption mb-2">
-                    Coyote gets send to the distributor and gets sold.
+                    greyduck gets send to the distributor and gets sold.
                   </div>
                 </v-flex>
                 <v-spacer></v-spacer>
@@ -209,13 +210,13 @@
           <p class="heading">
             There are fields all around, interrupted only by a steep mountain
             cliff, which casted its shadow on the fields in the morning. All
-            around you coyotes frolicked and loitered in the secluded pastures,
-            and touring around most fields ran a muddy road. The road made its
-            way to a traditional ranch after passing a simple welcome sign. The
-            ranch was in need of a coat of paint, but otherwise in great
-            condition. A milking facility stood in the corner of the courtyard,
-            a couple of dogs rested under the tree in the center of the
-            courtyard, and a small plot of land was used for a breathtaking
+            around you greyducks frolicked and loitered in the secluded
+            pastures, and touring around most fields ran a muddy road. The road
+            made its way to a traditional ranch after passing a simple welcome
+            sign. The ranch was in need of a coat of paint, but otherwise in
+            great condition. A milking facility stood in the corner of the
+            courtyard, a couple of dogs rested under the tree in the center of
+            the courtyard, and a small plot of land was used for a breathtaking
             flower garden.
           </p>
           <p class="headline mt-5">Licenses &amp; Certificates</p>
