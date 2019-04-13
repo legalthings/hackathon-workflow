@@ -1,19 +1,9 @@
 <template>
   <v-card class="mx-auto elevation-16" max-width="60rem">
-<<<<<<< HEAD
     <v-card flat>
       <v-card-title class="white">
         <h3 class="title font-weight-bold grow mt-4 mb-4">
           FoodFlow
-=======
-    <v-card dark flat>
-      <v-card-title class="pa-2 primary">
-        <h3
-          data-cy="chain-title"
-          class="title font-weight-light text-xs-center grow mt-4 mb-4"
-        >
-          Produce Overview
->>>>>>> 2730860101a4c8598af406bbcbc4d0c6bd79c554
         </h3>
 
         <v-spacer></v-spacer>
