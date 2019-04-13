@@ -10,7 +10,8 @@ class ChainModel extends LtoModel {
     console.log(chainData);
     let response = {
       id: chainData.id,
-      events: []
+      events: [],
+      identities: []
     };
     chainData.events.forEach(function (event) {
       console.log(event.body);
@@ -21,6 +22,7 @@ class ChainModel extends LtoModel {
         info: body.info
       })
     });
+    chainData.identities
     return response;
   }
 
