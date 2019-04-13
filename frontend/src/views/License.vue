@@ -75,7 +75,7 @@
       </v-card-text>
     </v-card>
 
-    <v-card>
+    <v-card style="background: #89acff;">
       <v-card-title>
         <p class="display-1">Two Stars</p>
         <v-spacer></v-spacer>

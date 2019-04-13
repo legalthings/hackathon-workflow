@@ -132,6 +132,67 @@
           </v-timeline>
         </v-tab-item>
         <v-tab-item class="ma-3 pb-4">
+          <p class="headline">Description</p>
+          <p class="heading">
+            There were fields all around, interrupted only by a steep mountain
+            cliff, which casted its shadow on the fields in the morning. All
+            around you sheep and cows frolicked and loitered in the secluded
+            pastures, and touring around most fields ran a muddy road. The road
+            made its way to a traditional ranch after passing a simple welcome
+            sign. The ranch was in need of a coat of paint, but otherwise in
+            great condition. A milking facility stood in the corner of the
+            courtyard, a couple of dogs rested under the tree in the center of
+            the courtyard, and a small plot of land was used for a breathtaking
+            flower garden. The farm had a tranquil feel to it, there was just
+            something about the farm that felt very intimate and welcoming.
+          </p>
+          <p class="headline mt-5">Licenses &amp; Certificates</p>
+
+          <v-card>
+            <v-list three-line>
+              <v-list-tile :to="'/license/' + chainId">
+                <v-list-tile-content>
+                  <img
+                    :src="require('../assets/better-life-2.png')"
+                    aspect-ratio="1.2"
+                    alt="Better Life License"
+                  />
+                </v-list-tile-content>
+
+                <v-list-tile-content>
+                  <v-list-tile-title>Better Life License</v-list-tile-title>
+                </v-list-tile-content>
+
+                <v-list-tile-action>
+                  <v-icon>info</v-icon>
+                </v-list-tile-action>
+              </v-list-tile>
+              <v-divider></v-divider>
+
+              <v-list-tile :to="'/certificate/' + chainId">
+                <v-list-tile-content>
+                  <img
+                    :src="require('../assets/gap-label.png')"
+                    alt="Global Animal Parnership Certificate"
+                  />
+                </v-list-tile-content>
+
+                <v-list-tile-content>
+                  <v-list-tile-title
+                    >Global Animal Parnership Certificate</v-list-tile-title
+                  >
+
+                  >
+                </v-list-tile-content>
+
+                <v-list-tile-action>
+                  <v-icon>info</v-icon>
+                </v-list-tile-action>
+              </v-list-tile>
+            </v-list>
+          </v-card>
+          <p class="headline mt-5">Location</p>
+
           <div v-if="farmLocation" class="map">
             <GmapMap
               :options="{
@@ -155,51 +216,6 @@
               />
             </GmapMap>
           </div>
-          <p class="headline mt-4">Description</p>
-          <p class="heading">
-            There were fields all around, interrupted only by a steep mountain
-            cliff, which casted its shadow on the fields in the morning. All
-            around you sheep and cows frolicked and loitered in the secluded
-            pastures, and touring around most fields ran a muddy road. The road
-            made its way to a traditional ranch after passing a simple welcome
-            sign. The ranch was in need of a coat of paint, but otherwise in
-            great condition. A milking facility stood in the corner of the
-            courtyard, a couple of dogs rested under the tree in the center of
-            the courtyard, and a small plot of land was used for a breathtaking
-            flower garden. The farm had a tranquil feel to it, there was just
-            something about the farm that felt very intimate and welcoming.
-          </p>
-          <p class="headline">Licenses &amp; Certificates</p>
-
-          <v-card>
-            <v-list>
-              <v-list-tile :to="'/license/' + chainId">
-                <v-list-tile-content>
-                  <v-list-tile-title
-                    ><p>Better Life License</p></v-list-tile-title
-                  >
-                </v-list-tile-content>
-
-                <v-list-tile-action>
-                  <v-icon>info</v-icon>
-                </v-list-tile-action>
-              </v-list-tile>
-
-              <v-list-tile :to="'/certificate/' + chainId">
-                <v-list-tile-content>
-                  <v-list-tile-title>
-                    <p>
-                      Global Animal Parnership Certificate
-                    </p>
-                  </v-list-tile-title>
-                </v-list-tile-content>
-
-                <v-list-tile-action>
-                  <v-icon>info</v-icon>
-                </v-list-tile-action>
-              </v-list-tile>
-            </v-list>
-          </v-card>
         </v-tab-item>
       </v-tabs-items>
     </v-card>
