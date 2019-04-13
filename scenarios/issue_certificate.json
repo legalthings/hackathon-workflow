@@ -17,7 +17,7 @@
       "title": "Back office Reviewer",
       "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
       "role": "reviewer"
-    }
+    },
     "signee": {
       "title": "Signee",
       "$ref": "https://specs.livecontracts.io/v0.1.0/actor/schema.json#organization",
@@ -66,7 +66,7 @@
       "transitions": [
         {
           "action": "create_contract",
-          "transition": "contract_ready
+          "transition": "contract_ready"
         }
       ]
     },
@@ -86,8 +86,10 @@
         "create_contract_sr_document"
       ],
       "transitions": [
-        "action": "create_contract_sr_document",
-        "transition": "contract_sr_document_created"
+        {
+          "action": "create_contract_sr_document",
+          "transition": "contract_sr_document_created"
+        }
       ]
     },
     "contract_sr_document_created": {
@@ -95,8 +97,10 @@
         "create_contract_sr"
       ],
       "transitions": [
-        "action": "create_contract_sr",
-        "transition": "contract_sr_created"
+        {
+          "action": "create_contract_sr",
+          "transition": "contract_sr_created"
+        }
       ]
     },
     "contract_sr_created": {
@@ -104,8 +108,10 @@
         "store_signed_contract"
       ],
       "transitions": [
-        "action": "store_signed_contract",
-        "transition": "contract_signed"
+        {
+          "action": "store_signed_contract",
+          "transition": "contract_signed"
+        }
       ]
     },
     "signed_contract_stored": {
@@ -113,8 +119,10 @@
         "store_contract_signing_log"
       ],
       "transitions": [
-        "action": "store_contract_signing_log",
-        "transition": "contract_signing_log_stored"
+        {
+          "action": "store_contract_signing_log",
+          "transition": "contract_signing_log_stored"
+        }
       ]
     },
     "contract_signing_log_stored": {
@@ -122,8 +130,10 @@
         "create_certificate_sr_document"
       ],
       "transitions": [
-        "action": "create_certificate_sr_document",
-        "transition": "certificate_sr_document_created"
+        {
+          "action": "create_certificate_sr_document",
+          "transition": "certificate_sr_document_created"
+        }
       ]
     },
     "certificate_sr_document_created": {
@@ -131,8 +141,10 @@
         "create_certificate_sr"
       ],
       "transitions": [
-        "action": "create_certificate_sr",
-        "transition": "certificate_sr_created"
+        {
+          "action": "create_certificate_sr",
+          "transition": "certificate_sr_created"
+        }
       ]
     },
     "certificate_sr_created": {
@@ -140,8 +152,10 @@
         "store_signed_certificate"
       ],
       "transitions": [
-        "action": "store_signed_certificate",
-        "transition": "signed_certificate_stored"
+        {
+          "action": "store_signed_certificate",
+          "transition": "signed_certificate_stored"
+        }
       ]
     },
     "signed_certificate_stored": {
@@ -149,8 +163,10 @@
         "store_certificate_signing_log"
       ],
       "transitions": [
-        "action": "store_certificate_signing_log",
-        "transition": "certificate_signing_log_stored"
+        {
+          "action": "store_certificate_signing_log",
+          "transition": "certificate_signing_log_stored"
+        }
       ]
     },
     "certificate_signing_log_stored": {
@@ -158,8 +174,10 @@
         "add_certificate_to_db"
       ],
       "transitions": [
-        "action": "add_certificate_to_db",
-        "transition": ":success"
+        {
+          "action": "add_certificate_to_db",
+          "transition": ":success"
+        }
       ]
     }
   },
@@ -271,7 +289,7 @@
       },
       "data": {
         "template": "54a250c1-1a5f-4a97-a75c-4b466812a484",
-        "organization_id: "5424879e22a903fd678b4570",
+        "organization_id": "5424879e22a903fd678b4570",
         "name": "Certificate",
         "values": {
           "<ref>": "assets.inspection_data"
@@ -299,7 +317,7 @@
       },
       "data": {
         "template": "6c625dc9-cb31-4dd2-8c8f-ce1ad45fba65",
-        "organization_id: "5424879e22a903fd678b4570",
+        "organization_id": "5424879e22a903fd678b4570",
         "name": "Certificate",
         "values": {
           "<ref>": "assets.inspection_data"
