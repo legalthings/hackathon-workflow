@@ -96,7 +96,7 @@
             and nutrients. The meat from older coyotes, because it is usually
             tougher, is frequently used for mince.
           </p>
-          <p class="headline mt-4 mb-4">Nutrition Facts</p>
+          <p class="headline mt-4 mb-4">Nutrition</p>
           <v-data-table
             :headers="nutritionHeaders"
             :items="nutritionItems"
