@@ -1,19 +1,36 @@
 import resource from 'resource-router-middleware';
-import chains from '../models/chains';
+import ChainModel from '../models/chains';
 
 export default ({ config, db }) => resource({
 
 	/** Property name to store preloaded entity on `request`. */
-	id : 'facet',
+	id : 'chain',
 
 	/** For requests with an `id`, you can auto-load the entity.
 	 *  Errors terminate the request, success sets `req[id] = data`.
 	 */
+
 	load(req, id, callback) {
-		let chian = chains.find( chains => chain.id===id ),
-			err = chain ? null : 'Not found';
-		callback(err, chain);
+		const chainModel = new ChainModel();
+		let chainProm = chainModel.loadChain(id),
+			chain = null,
+			err = null;
+		chainProm.then(function (result) {
+			chain = result;
+			callback(err, chain);
+		}, function (err) {
+			err = err.message;
+			callback(err, chain);
+		}).catch(function () {
+			err = 'Error';
+			callback(err, chain);
+		})
 	},
+
+	read({ chain }, res) {
+		res.json(chain);
+	},
+
 	//
 	// /** GET / - List all entities */
 	// index({ params }, res) {
