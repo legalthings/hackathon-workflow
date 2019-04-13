@@ -29,18 +29,19 @@ class LtoModel {
     return headers;
   }
 
-  async sendRequest( path, method, data) {
-    const headers = this.getRequestHeaders(path, method);
+  async sendRequest(conf) {
+    // conf: {path, method, data}
+    const headers = this.getRequestHeaders(conf.path, conf.method);
 
     const requestOptions = {
-      method,
-      url: this.url + path,
+      method: conf.method,
+      url: this.url + conf.path,
       headers,
       json: true
     };
 
-    if (data) {
-      requestOptions.json = data;
+    if (conf.data) {
+      requestOptions.json = conf.data;
     }
 
     const resp = await request(requestOptions);
