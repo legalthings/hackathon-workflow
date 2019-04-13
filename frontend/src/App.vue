@@ -18,6 +18,6 @@ export default {
 
 <style scoped>
 .body-bg {
-  background-image: linear-gradient(-90deg, #7daef4 0%, #4776e6 100%);
+  background: #ddd;
 }
 </style>
