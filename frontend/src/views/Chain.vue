@@ -30,7 +30,7 @@
           </v-card-title>
 
           <v-card-text>
-            <p class="title">
+            <p class="title font-weight-light">
               The meat is tasty, delicious and mystic, and melts in your mouth
               like those gummies Odyssey gave us.
             </p>
@@ -51,7 +51,7 @@
           </v-card-title>
 
           <v-card-text>
-            <p class="title">
+            <p class="title font-weight-light">
               Greyduck coyote farm specializes coyote meat and coyote meat only.
               The meat is widely recognized and generally considered to be the
               most tender meat in the entire world.
@@ -71,7 +71,7 @@
           </v-card-title>
 
           <v-card-text>
-            <p class="title">
+            <p class="title font-weight-light">
               Greyduck coyote farm specializes coyote meat and coyote meat only.
               The meat is widely recognized and generally considered to be the
               most tender meat in the entire world.
@@ -108,38 +108,81 @@
         <v-tab-item class="ma-3">
           <p class="headline mb-4">Timeline</p>
           <v-timeline align-top dense>
+            <v-timeline-item color="primary" small>
+              <v-layout pt-3>
+                <v-flex>
+                  <strong>Auditor</strong>
+                  <div class="caption">
+                    The farm gets audited to make sure it is up to all safety
+                    standards and code.
+                  </div>
+                </v-flex>
+                <v-spacer></v-spacer>
+                <v-btn
+                  href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
+                  >Explore</v-btn
+                >
+              </v-layout>
+            </v-timeline-item>
             <v-timeline-item color="pink" small>
               <v-layout pt-3>
                 <v-flex>
-                  <strong>New Icon</strong>
-                  <div class="caption">Mobile App</div>
+                  <strong>Producer</strong>
+                  <div class="caption">Farmer raised the coyote.</div>
                 </v-flex>
+                <v-spacer></v-spacer>
+                <v-btn
+                  href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
+                  >Explore</v-btn
+                >
+              </v-layout>
+            </v-timeline-item>
+
+            <v-timeline-item color="warning lighten-3" small>
+              <v-layout wrap pt-3>
+                <v-flex>
+                  <strong>Transporter</strong>
+                  <div class="caption mb-2">
+                    The processec coyote meat gets transported to the processor.
+                  </div>
+                </v-flex>
+                <v-spacer></v-spacer>
+                <v-btn
+                  href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
+                  >Explore</v-btn
+                >
               </v-layout>
             </v-timeline-item>
 
             <v-timeline-item color="teal lighten-3" small>
               <v-layout wrap pt-3>
                 <v-flex>
-                  <strong>Design Stand Up</strong>
-                  <div class="caption mb-2">Hangouts</div>
+                  <strong>Processor</strong>
+                  <div class="caption mb-2">
+                    Coyote gets processed into batches and finalized for sale.
+                  </div>
                 </v-flex>
+                <v-spacer></v-spacer>
+                <v-btn
+                  href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
+                  >Explore</v-btn
+                >
               </v-layout>
             </v-timeline-item>
 
-            <v-timeline-item color="pink" small>
+            <v-timeline-item color="black" small>
               <v-layout pt-3>
                 <v-flex>
-                  <strong>Lunch break</strong>
+                  <strong>Distributor</strong>
+                  <div class="caption mb-2">
+                    Coyote gets send to the distributor and gets sold.
+                  </div>
                 </v-flex>
-              </v-layout>
-            </v-timeline-item>
-
-            <v-timeline-item color="teal lighten-3" small>
-              <v-layout pt-3>
-                <v-flex>
-                  <strong>Finish Home Screen</strong>
-                  <div class="caption">Web App</div>
-                </v-flex>
+                <v-spacer></v-spacer>
+                <v-btn
+                  href="https://explorer.lto.network/transactions/H9NMeN7M4eqGNrNZPEqCRd577SbGDPnCF3kAPPB2W8F2"
+                  >Explore</v-btn
+                >
               </v-layout>
             </v-timeline-item>
           </v-timeline>
@@ -157,7 +200,7 @@
             courtyard, a couple of dogs rested under the tree in the center of
             the courtyard, and a small plot of land was used for a breathtaking
             flower garden. The farm had a tranquil feel to it, there was just
-            something about the farm that felt very intimate and welcoming.
+            somelightg about the farm that felt very intimate and welcoming.
           </p>
           <p class="headline mt-5">Licenses &amp; Certificates</p>
 
