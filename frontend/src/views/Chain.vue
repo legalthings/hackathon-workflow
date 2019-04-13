@@ -16,7 +16,7 @@
 
     <v-tabs-items v-model="selectedTab">
       <v-tab-item>
-        <v-card class="mx-5 my-5">
+        <v-card class="ma-3">
           <v-img
             :src="require('../assets/sample_product.jpg')"
             aspect-ratio="1.75"
@@ -41,7 +41,7 @@
       </v-tab-item>
 
       <v-tab-item>
-        <v-card class="mx-5 my-5">
+        <v-card class="ma-3">
           <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
 
           <v-card-title>
@@ -61,7 +61,7 @@
       </v-tab-item>
 
       <v-tab-item>
-        <v-card class="mx-5 my-5">
+        <v-card class="ma-3">
           <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
 
           <v-card-title>

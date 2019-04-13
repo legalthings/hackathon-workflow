@@ -1,7 +1,7 @@
 <template>
   <v-card flat class="mx-auto elevation-16 main" max-width="60rem">
     <v-toolbar flat color="white">
-      <v-btn icon :href="'/chain/' + chainId">
+      <v-btn icon :to="'/chain/' + chainId">
         <v-icon>keyboard_arrow_left</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
