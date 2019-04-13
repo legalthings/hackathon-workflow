@@ -40,8 +40,19 @@
         <v-tab>Journey</v-tab>
         <v-tab>Farm</v-tab>
 
-        <v-tab-item><h3>Chicken</h3></v-tab-item>
+        <v-tab-item><h3>Product</h3></v-tab-item>
+
         <v-tab-item>
+          <div id="map">
+            <l-map :zoom="zoom" :center="center">
+              <l-tile-layer
+                :url="url"
+                :attribution="attribution"
+              ></l-tile-layer>
+              <l-marker :lat-lng="marker"></l-marker>
+            </l-map>
+          </div>
+
           <v-timeline align-top dense>
             <v-timeline-item color="pink" small>
               <v-layout pt-3>
@@ -118,7 +129,13 @@ import { Component, Watch, Prop } from 'vue-property-decorator'
 // @ts-ignore
 import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
 
-@Component
+@Component({
+  components: {
+    LMap,
+    LTileLayer,
+    LMarker
+  }
+})
 export default class Chain extends Vue {
   @Prop(String) readonly chainId!: string
 
@@ -140,5 +157,11 @@ export default class Chain extends Vue {
 
 .tabs .v-window {
   padding: 10px;
+}
+
+#map {
+  height: 200px;
+  width: 100%;
+  margin: 0;
 }
 </style>
