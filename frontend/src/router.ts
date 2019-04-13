@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Scan from './views/Scan.vue'
 import Chain from './views/Chain.vue'
 import License from './views/License.vue'
+import Certificate from './views/Certificate.vue'
 
 Vue.use(Router)
 
@@ -25,6 +26,12 @@ export default new Router({
       path: '/license/:chainId',
       name: 'license',
       component: License,
+      props: true
+    },
+    {
+      path: '/certificate/:chainId',
+      name: 'certificate',
+      component: Certificate,
       props: true
     }
   ]
