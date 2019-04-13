@@ -45,7 +45,7 @@
           <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
 
           <v-card-title>
-            <h3 class="headline mb-2">Greyduck Farm</h3>
+            <h3 class="headline mb-2">Grey Duck Farm</h3>
             <v-spacer></v-spacer>
             <v-chip label>#1283SJ2</v-chip>
           </v-card-title>
@@ -65,7 +65,7 @@
           <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
 
           <v-card-title>
-            <h3 class="headline mb-2">Greyduck Farm</h3>
+            <h3 class="headline mb-2">Grey Duck Farm</h3>
             <v-spacer></v-spacer>
             <v-chip label>#1283SJ2</v-chip>
           </v-card-title>
