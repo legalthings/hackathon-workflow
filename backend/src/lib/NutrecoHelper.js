@@ -11,7 +11,7 @@ const RETRY_RATE = 100
 
 class NutrecoHelper {
   
-  constructer(url) {
+  constructor(url) {
     this.url = url || 'http://localhost:3000';
     this.lto = new LTO;
     this.activeState = null;
