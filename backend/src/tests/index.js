@@ -30,6 +30,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
 
   const nutrecoPublicSignKey = nutrecoAccount.getPublicSignKey();
   const process = 'main';
+  let nextAction = {};
 
   console.log('Delete previous chains and processes');
   console.log(await nutrecoHelper.deleteProcess(nutrecoAccount, process, chainSeed, nutrecoAccount.getPublicSignKey()));
@@ -114,9 +115,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
   let res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
   await timeout(500);
 
-  //console.log(res);
-
-  let action = {
+  nextAction = {
     key: "invite_actors",
     actor: {
       key: 'nutreco',
@@ -127,15 +126,376 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     },
     data: {}
   };
+
+  console.info("Event added");
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
-  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, action);
-  console.log(chain);
-
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
   res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
 
-  console.log(res);
+  nextAction = {
+    key: "add_food_data",
+    actor: {
+      key: 'nutreco',
+      id: nutrecoAccount.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {
+      taste: "delicious"
+    }
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
 
+  nextAction = {
+    key: "food_transport_1_leaving",
+    actor: {
+      key: 'food_transporter_1',
+      id: foodTransporter1Account.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "food_transport_1_arriving",
+    actor: {
+      key: 'food_transporter_1',
+      id: foodTransporter1Account.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "lay_eggs",
+    actor: {
+      key: 'egg_chickens',
+      id: eggChickenAccount.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "egg_transport_leaving",
+    actor: {
+      key: 'egg_transporter',
+      id: eggTransporterAccount.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "egg_transport_arriving",
+    actor: {
+      key: 'egg_transporter',
+      id: eggTransporterAccount.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "egg_hatches",
+    actor: {
+      key: 'hatcher',
+      id: hatcherAccount.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "food_transport_2_leaving",
+    actor: {
+      key: 'food_transporter_2',
+      id: foodTransporter2Account.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "food_transport_2_arriving",
+    actor: {
+      key: 'food_transporter_2',
+      id: foodTransporter2Account.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "chick_transport_leaving",
+    actor: {
+      key: 'chicken_transporter_1',
+      id: chickenTransporter1Account.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "chick_transport_arriving",
+    actor: {
+      key: 'chicken_transporter_1',
+      id: chickenTransporter1Account.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "feed_chicken",
+    actor: {
+      key: 'eat_chickens',
+      id: eatChickenAccount.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "chicken_transport_leaving",
+    actor: {
+      key: 'chicken_transporter_2',
+      id: chickenTransporter2Account.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "chicken_transport_arriving",
+    actor: {
+      key: 'chicken_transporter_2',
+      id: chickenTransporter2Account.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "slaughter_chicken",
+    actor: {
+      key: 'slaughterhouse',
+      id: slaughterhouseAccount.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "meat_transport_1_leaving",
+    actor: {
+      key: 'meat_transporter_1',
+      id: meatTransporter1Account.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "meat_transport_1_arriving",
+    actor: {
+      key: 'meat_transporter_1',
+      id: meatTransporter1Account.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "meat_transport_2_leaving",
+    actor: {
+      key: 'meat_transporter_2',
+      id: meatTransporter2Account.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "meat_transport_2_arriving",
+    actor: {
+      key: 'meat_transporter_2',
+      id: meatTransporter2Account.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("Event added");
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
 
 
   let appUrl = `https://ddfb878d.ngrok.io/chain/${chain.id}/`;

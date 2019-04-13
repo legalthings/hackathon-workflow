@@ -337,22 +337,18 @@
     "create_contract_sr_document": {
       "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#http",
       "actor": "signee",
-      "url": "https://legalthings.signrequest.com/api/v1/documents/",
+      "url": "https://foodflow.signrequest.com/api/v1/documents/",
       "method": "POST",
       "query": {},
       "headers": {
         "Content-Type": "application/json",
-        "Authorization": "Token c1b57995b319ac0c11dfb4f0ef7b54b94a48392b"
+        "Authorization": "Token 0edd2c2ac1fc8382411a2433d3c5fa5cd9e7cd45"
       },
       "data": [
         {
           "name": "file",
           "url": "",
           "filename": ""
-        },
-        {
-          "name": "event_callback_url",
-          "contents": ""
         },
         {
           "name": "auto_delete_days",
@@ -362,7 +358,7 @@
       "responses": {
         "ok": {
           "display": "never",
-          "title": "Contract created",
+          "title": "Contract sr document created",
           "update": {
             "select": "assets.sr_contract_document"
           }
@@ -376,19 +372,19 @@
     "create_contract_sr": {
       "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#http",
       "actor": "signee",
-      "url": "https://legalthings.signrequest.com/api/v1/signrequests/",
+      "url": "https://foodflow.signrequest.com/api/v1/signrequests/",
       "method": "POST",
       "query": {},
       "headers": {
         "Content-Type": "application/json",
-        "Authorization": "Token c1b57995b319ac0c11dfb4f0ef7b54b94a48392b"
+        "Authorization": "Token 0edd2c2ac1fc8382411a2433d3c5fa5cd9e7cd45"
       },
       "data": {
         "document": {
           "<ref>": "assets.sr_contract_document.url"
         },
         "from_email": {
-          "<ref>": "actors.reviewer.email"
+          "<ref>": "actors.signee.email"
         },
         "messages": "Please sign the contract",
         "signers": [
@@ -413,7 +409,6 @@
       "responses": {
         "ok": {
           "display": "never",
-          "title": "Contract created",
           "update": {
             "select": "assets.sr_contract_request"
           }
@@ -424,12 +419,142 @@
         }
       }
     },
-    "store_signed_contract": {},
-    "store_contract_siging_log": {},
-    "create_certificate_sr_document": {},
-    "create_certificate_sr": {},
-    "store_signed_certificate": {},
-    "store_certificate_siging_log": {},
-    "add_certificate_to_db":{}
+    "create_certificate_sr_document": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#http",
+      "actor": "signee",
+      "url": "https://foodflow.signrequest.com/api/v1/documents/",
+      "method": "POST",
+      "query": {},
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token 0edd2c2ac1fc8382411a2433d3c5fa5cd9e7cd45"
+      },
+      "data": [
+        {
+          "name": "file",
+          "url": "",
+          "filename": ""
+        },
+        {
+          "name": "auto_delete_days",
+          "contents": 1
+        }
+      ],
+      "responses": {
+        "ok": {
+          "display": "never",
+          "title": "Certificate sr document created",
+          "update": {
+            "select": "assets.sr_certificate_document"
+          }
+        },
+        "error": {
+          "display": "always",
+          "title": "failed to create certificate"
+        }
+      }
+    },
+    "create_certificate_sr": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#http",
+      "actor": "signee",
+      "url": "https://foodflow.signrequest.com/api/v1/signrequests/",
+      "method": "POST",
+      "query": {},
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token 0edd2c2ac1fc8382411a2433d3c5fa5cd9e7cd45"
+      },
+      "data": {
+        "document": {
+          "<ref>": "assets.sr_certificate_document.url"
+        },
+        "from_email": {
+          "<ref>": "actors.signee.email"
+        },
+        "messages": "Please sign the contract",
+        "signers": [
+          {
+            "email": {
+              "<ref>": "actors.inspectee.info.email"
+            },
+            "viewed": false,
+            "signed": false,
+            "message": null
+          },
+          {
+            "email": {
+              "<ref>": "actors.signee.info.email"
+            },
+            "viewed": false,
+            "signed": false,
+            "message": null
+          }
+        ]
+      },
+      "responses": {
+        "ok": {
+          "display": "never",
+          "update": {
+            "select": "assets.sr_contract_request"
+          }
+        },
+        "error": {
+          "display": "always",
+          "title": "failed to create contract"
+        }
+      }
+    },
+    "store_signed_contract": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "signee",
+      "responses": {
+        "ok": {
+          "title": "Store signed contract",
+          "update": {
+            "select": "assets.signed_contract",
+            "patch": false
+          }
+        }
+      }
+    },
+    "store_contract_siging_log": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "signee",
+      "responses": {
+        "ok": {
+          "title": "Store contract signing log",
+          "update": {
+            "select": "assets.contract_signing_log",
+            "patch": false
+          }
+        }
+      }
+    },
+    "store_signed_certificate": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "signee",
+      "responses": {
+        "ok": {
+          "title": "Store signed certificate",
+          "update": {
+            "select": "assets.signed_certificate",
+            "patch": false
+          }
+        }
+      }
+    },
+    "store_certificate_siging_log": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "signee",
+      "responses": {
+        "ok": {
+          "title": "Store certificate signing log",
+          "update": {
+            "select": "assets.certificate_signing_log",
+            "patch": false
+          }
+        }
+      }
+    }
   }
 }

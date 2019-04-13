@@ -187,7 +187,6 @@ class NutrecoHelper {
 
   performDataAction(chain, account, process, action) {
     const processId = chain.createProjectionId(process);
-    console.log(processId);
     const response = {
       '$schema': 'https://specs.livecontracts.io/v0.1.0/response/schema.json#',
       process: {
@@ -203,7 +202,6 @@ class NutrecoHelper {
       key: action.response.key,
       data: action.data
     };
-    console.log(response);
 
     const event = new Event(response);
     event.addTo(chain).signWith(account);
