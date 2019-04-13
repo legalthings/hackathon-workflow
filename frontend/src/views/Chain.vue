@@ -15,11 +15,7 @@
     </v-toolbar>
 
     <v-card class="mx-3 my-5">
-      <v-img
-        src="https://www.agri-pulse.com/ext/resources/images/Agriculture-photos/Farmscapes/Farm1.jpg?1509734744"
-        aspect-ratio="1.75"
-      >
-      </v-img>
+      <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75"> </v-img>
 
       <v-card-title primary-title>
         <div>
@@ -40,15 +36,15 @@
         <v-tab>Journey</v-tab>
         <v-tab>Farm</v-tab>
 
-        <v-tab-item class="ma-3"><h3>Product</h3> </v-tab-item>
+        <v-tab-item>
+          <p class="title mb-4">Description</p>
+        </v-tab-item>
 
         <v-tab-item class="ma-3">
+          <p class="title mb-4">Timeline</p>
           <v-timeline align-top dense>
             <v-timeline-item color="pink" small>
               <v-layout pt-3>
-                <v-flex xs3>
-                  <strong>5pm</strong>
-                </v-flex>
                 <v-flex>
                   <strong>New Icon</strong>
                   <div class="caption">Mobile App</div>
@@ -58,36 +54,15 @@
 
             <v-timeline-item color="teal lighten-3" small>
               <v-layout wrap pt-3>
-                <v-flex xs3>
-                  <strong>3-4pm</strong>
-                </v-flex>
                 <v-flex>
                   <strong>Design Stand Up</strong>
                   <div class="caption mb-2">Hangouts</div>
-                  <v-avatar>
-                    <v-img
-                      src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Kurt&hairColor=Red&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Skull&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown"
-                    ></v-img>
-                  </v-avatar>
-                  <v-avatar>
-                    <v-img
-                      src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=Black&eyeType=Default&eyebrowType=FlatNatural&mouthType=Default&skinColor=Tanned"
-                    ></v-img>
-                  </v-avatar>
-                  <v-avatar>
-                    <v-img
-                      src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairMiaWallace&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Pale"
-                    ></v-img>
-                  </v-avatar>
                 </v-flex>
               </v-layout>
             </v-timeline-item>
 
             <v-timeline-item color="pink" small>
               <v-layout pt-3>
-                <v-flex xs3>
-                  <strong>12pm</strong>
-                </v-flex>
                 <v-flex>
                   <strong>Lunch break</strong>
                 </v-flex>
@@ -96,9 +71,6 @@
 
             <v-timeline-item color="teal lighten-3" small>
               <v-layout pt-3>
-                <v-flex xs3>
-                  <strong>9-11am</strong>
-                </v-flex>
                 <v-flex>
                   <strong>Finish Home Screen</strong>
                   <div class="caption">Web App</div>
@@ -108,7 +80,6 @@
           </v-timeline>
         </v-tab-item>
         <v-tab-item class="ma-3 pb-4">
-          <h2 class="mb-4">Farm Information</h2>
           <div v-if="farmLocation" class="map">
             <GmapMap
               :center="farmLocation.center"
@@ -121,8 +92,38 @@
                 :clickable="false"
                 :draggable="false"
               />
-            </GmapMap></div
-        ></v-tab-item>
+            </GmapMap>
+          </div>
+          <p class="headline mt-4">Description</p>
+          <p class="heading">
+            There were fields all around, interrupted only by a steep mountain
+            cliff, which casted its shadow on the fields in the morning. All
+            around you sheep and cows frolicked and loitered in the secluded
+            pastures, and touring around most fields ran a muddy road. The road
+            made its way to a traditional ranch after passing a simple welcome
+            sign. The ranch was in need of a coat of paint, but otherwise in
+            great condition. A milking facility stood in the corner of the
+            courtyard, a couple of dogs rested under the tree in the center of
+            the courtyard, and a small plot of land was used for a breathtaking
+            flower garden. The farm had a tranquil feel to it, there was just
+            something about the farm that felt very intimate and welcoming.
+          </p>
+          <p class="headline">Licenses</p>
+
+          <v-card>
+            <v-list>
+              <v-list-tile :href="'/license/' + chainId">
+                <v-list-tile-content>
+                  <v-list-tile-title>Better Life License</v-list-tile-title>
+                </v-list-tile-content>
+
+                <v-list-tile-action>
+                  <v-icon>info</v-icon>
+                </v-list-tile-action>
+              </v-list-tile>
+            </v-list>
+          </v-card>
+        </v-tab-item>
       </v-tabs>
     </v-card>
   </v-card>
