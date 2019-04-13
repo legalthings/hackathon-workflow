@@ -2,7 +2,7 @@
   <v-card class="mx-auto elevation-16" max-width="60rem">
     <v-card dark flat>
       <v-btn absolute bottom color="primary" right fab>
-        <v-icon>md-plus</v-icon>
+        <v-icon>description</v-icon>
       </v-btn>
       <v-card-title class="pa-2 primary">
         <v-btn icon>
@@ -30,7 +30,9 @@
         <v-tabs v-model="tab" color="white" grow>
           <v-tabs-slider color="dark"></v-tabs-slider>
 
-          <v-tab v-for="n in 3" :key="n" ripple> Item {{ n }} </v-tab>
+          <v-tab>Overview</v-tab>
+          <v-tab>Journey</v-tab>
+          <v-tab>Farm</v-tab>
         </v-tabs>
       </template>
     </v-toolbar>
@@ -108,6 +110,20 @@
         </v-timeline-item>
       </v-timeline>
     </v-card-text>
+
+    <v-bottom-nav :value="true" absolute shift>
+      <v-btn dark>
+        <span>Menu</span>
+        <v-icon>menu</v-icon>
+      </v-btn>
+
+      <v-spacer></v-spacer>
+
+      <v-btn dark>
+        <span>Share</span>
+        <v-icon>share</v-icon>
+      </v-btn>
+    </v-bottom-nav>
   </v-card>
 </template>
 
@@ -118,8 +134,6 @@ import { Component, Watch, Prop } from 'vue-property-decorator'
 @Component
 export default class Chain extends Vue {
   @Prop(String) readonly chainId!: string
-
-  tab: string = 'produce'
 
   get chain() {
     const { chainId } = this

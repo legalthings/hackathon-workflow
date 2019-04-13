@@ -72,20 +72,6 @@
     >
       <v-icon>camera</v-icon>
     </v-btn>
-
-    <v-bottom-nav :value="true" absolute shift>
-      <v-btn dark>
-        <span>Menu</span>
-        <v-icon>menu</v-icon>
-      </v-btn>
-
-      <v-spacer></v-spacer>
-
-      <v-btn dark>
-        <span>Share</span>
-        <v-icon>share</v-icon>
-      </v-btn>
-    </v-bottom-nav>
   </div>
 </template>
 
@@ -149,7 +135,6 @@ export default class Home extends Vue {
 
 h1.scan {
   color: white;
-  font-size: ;
 }
 
 .float-scan {
