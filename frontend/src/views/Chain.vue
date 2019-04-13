@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <v-container bg fill-height grid-list-md text-xs-center>
     <v-layout row wrap align-center>
       <v-flex xs12 sm6 offset-sm3>
@@ -26,10 +27,118 @@
             <v-btn flat color="orange">Journey</v-btn>
             <v-btn flat color="orange">Farm</v-btn>
           </v-card-actions>
+=======
+  <v-card class="mx-auto" max-width="100%">
+    <v-card dark flat>
+      <v-btn absolute bottom color="primary" right fab>
+        <v-icon>md-plus</v-icon>
+      </v-btn>
+      <v-card-title class="pa-2 primary">
+        <v-btn icon>
+          <v-icon>mdi-menu</v-icon>
+        </v-btn>
+        <h3 class="title font-weight-light text-xs-center grow">
+          Produce Overview
+        </h3>
+      </v-card-title>
+      <v-img
+        src="https://www.agri-pulse.com/ext/resources/images/Agriculture-photos/Farmscapes/Farm1.jpg?1509734744"
+        gradient="to top, rgba(0,0,0,.44), rgba(0,0,0,.44)"
+      >
+      </v-img>
+    </v-card>
+    <v-card>
+      <v-container>
+        <p class="font-weight-bold">#1283SJ2</p>
+        <p class="display-1 font-weight-regular">A Farm</p>
+      </v-container>
+    </v-card>
+
+    <v-toolbar color="white" tabs>
+      <template v-slot:extension>
+        <v-tabs v-model="tab" color="white" grow>
+          <v-tabs-slider color="dark"></v-tabs-slider>
+
+          <v-tab v-for="n in 3" :key="n" ripple> Item {{ n }} </v-tab>
+        </v-tabs>
+      </template>
+    </v-toolbar>
+
+    <v-tabs-items v-model="tab">
+      <v-tab-item v-for="n in 3" :key="n">
+        <v-card flat>
+          <v-card-text>{{ text }}</v-card-text>
+>>>>>>> 4c67324119d00b67c631543a0b7add18f3cb85d3
         </v-card>
-      </v-flex>
-    </v-layout>
-  </v-container>
+      </v-tab-item>
+    </v-tabs-items>
+
+    <v-card-text class="py-0">
+      <v-timeline align-top dense>
+        <v-timeline-item color="pink" small>
+          <v-layout pt-3>
+            <v-flex xs3>
+              <strong>5pm</strong>
+            </v-flex>
+            <v-flex>
+              <strong>New Icon</strong>
+              <div class="caption">Mobile App</div>
+            </v-flex>
+          </v-layout>
+        </v-timeline-item>
+
+        <v-timeline-item color="teal lighten-3" small>
+          <v-layout wrap pt-3>
+            <v-flex xs3>
+              <strong>3-4pm</strong>
+            </v-flex>
+            <v-flex>
+              <strong>Design Stand Up</strong>
+              <div class="caption mb-2">Hangouts</div>
+              <v-avatar>
+                <v-img
+                  src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairFrida&accessoriesType=Kurt&hairColor=Red&facialHairType=BeardLight&facialHairColor=BrownDark&clotheType=GraphicShirt&clotheColor=Gray01&graphicType=Skull&eyeType=Wink&eyebrowType=RaisedExcitedNatural&mouthType=Disbelief&skinColor=Brown"
+                ></v-img>
+              </v-avatar>
+              <v-avatar>
+                <v-img
+                  src="https://avataaars.io/?avatarStyle=Circle&topType=ShortHairFrizzle&accessoriesType=Prescription02&hairColor=Black&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=BlazerSweater&clotheColor=Black&eyeType=Default&eyebrowType=FlatNatural&mouthType=Default&skinColor=Tanned"
+                ></v-img>
+              </v-avatar>
+              <v-avatar>
+                <v-img
+                  src="https://avataaars.io/?avatarStyle=Circle&topType=LongHairMiaWallace&accessoriesType=Sunglasses&hairColor=BlondeGolden&facialHairType=Blank&clotheType=BlazerSweater&eyeType=Surprised&eyebrowType=RaisedExcited&mouthType=Smile&skinColor=Pale"
+                ></v-img>
+              </v-avatar>
+            </v-flex>
+          </v-layout>
+        </v-timeline-item>
+
+        <v-timeline-item color="pink" small>
+          <v-layout pt-3>
+            <v-flex xs3>
+              <strong>12pm</strong>
+            </v-flex>
+            <v-flex>
+              <strong>Lunch break</strong>
+            </v-flex>
+          </v-layout>
+        </v-timeline-item>
+
+        <v-timeline-item color="teal lighten-3" small>
+          <v-layout pt-3>
+            <v-flex xs3>
+              <strong>9-11am</strong>
+            </v-flex>
+            <v-flex>
+              <strong>Finish Home Screen</strong>
+              <div class="caption">Web App</div>
+            </v-flex>
+          </v-layout>
+        </v-timeline-item>
+      </v-timeline>
+    </v-card-text>
+  </v-card>
 </template>
 
 <script lang="ts">
@@ -51,4 +160,8 @@ export default class Chain extends Vue {
 }
 </script>
 
-<style></style>
+<style>
+.main {
+  max-width: 800px;
+}
+</style>
