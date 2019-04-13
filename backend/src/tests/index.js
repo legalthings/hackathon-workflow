@@ -7,6 +7,8 @@ const chainSeed = 'some eventchain seed';
 
 const node1 = 'http://localhost:3000';
 
+const timeout = ms => new Promise(res => setTimeout(res, ms));
+
 (async() => {
   const nutrecoHelper = new NutrecoHelper(node1);
   const systemKey = await nutrecoHelper.loadSystemKey();
@@ -109,10 +111,10 @@ const node1 = 'http://localhost:3000';
   };
 
   let chain = await nutrecoHelper.createSupplyChain(nutrecoAccount, chainSeed, systemKey, actorData, nodeAddress);
-  console.log(chain.id)
   let res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
 
-  console.log(res);
+  //console.log(res);
 
   let action = {
     key: "invite_actors",
@@ -128,8 +130,8 @@ const node1 = 'http://localhost:3000';
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, action);
-  process_full = nutrecoHelper.loadProcess(nutrecoAccount, chainSeed, process, nutrecoAccount.getPublicSignKey());
-  console.log(process_full);
+  console.log(chain);
+
   res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
 
   console.log(res);
