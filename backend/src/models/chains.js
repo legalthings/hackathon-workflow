@@ -3,10 +3,10 @@ import request from 'request-promise';
 
 class ChainModel {
 
-  constructor(url, seed) {
+  constructor() {
     // this.url = 'https://ilt.legalthings.one';
-    this.url = url || 'http://localhost:3000';
-    this.seed = seed || 'some test seed';
+    this.url = process.env.LTO_NODE_URL || 'http://localhost:3000';
+    this.seed = process.env.LTO_SEED || 'some test seed for development that is long enough';
     this.lto = new LTO();
     this.account = this.createAccount(this.seed)
   }
@@ -41,7 +41,6 @@ class ChainModel {
     if (qs) {
       requestOptions.qs = qs;
     }
-
     const resp = await request(requestOptions);
     return resp;
   }
@@ -55,7 +54,7 @@ class ChainModel {
     const method = 'get';
 
     const chain = new EventChain();
-    const chainData = await this.sendRequest(this.account, path, method);
+    const chainData = await this.sendRequest(path, method);
     console.log(chainData);
     const chainDataVals = chain.setValues(chainData);
     console.log(chainDataVals);
