@@ -83,17 +83,17 @@
 
     <v-card flat>
       <v-tabs grow class="tabs" v-model="selectedTab">
-        <v-tab>Product</v-tab>
+        <v-tab>Produce</v-tab>
         <v-tab>Journey</v-tab>
         <v-tab>Farm</v-tab>
       </v-tabs>
       <v-tabs-items v-model="selectedTab">
-        <v-tab-item>
-          <p class="title mb-4">Description</p>
+        <v-tab-item class="ma-3">
+          <p class="headline mb-4">Overview</p>
         </v-tab-item>
 
         <v-tab-item class="ma-3">
-          <p class="title mb-4">Timeline</p>
+          <p class="headline mb-4">Timeline</p>
           <v-timeline align-top dense>
             <v-timeline-item color="pink" small>
               <v-layout pt-3>
