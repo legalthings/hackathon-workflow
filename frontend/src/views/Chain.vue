@@ -1,13 +1,14 @@
 <template>
   <v-card class="mx-auto elevation-16" max-width="60rem">
-    <v-card dark flat>
-      <v-card-title class="pa-2 primary">
-        <h3
-          data-cy="chain-title"
-          class="title font-weight-light text-xs-center grow mt-4 mb-4"
-        >
-          Produce Overview
+    <v-card flat>
+      <v-card-title class="white">
+        <h3 class="title font-weight-bold grow mt-4 mb-4">
+          FoodFlow
         </h3>
+
+        <v-spacer></v-spacer>
+
+        <v-icon>more_vert</v-icon>
       </v-card-title>
       <v-img
         src="https://www.agri-pulse.com/ext/resources/images/Agriculture-photos/Farmscapes/Farm1.jpg?1509734744"
