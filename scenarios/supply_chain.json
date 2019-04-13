@@ -73,6 +73,17 @@
   "states": {
     ":initial": {
       "actions": [
+        "start"
+      ],
+      "transitions": [
+        {
+          "action": "start",
+          "transition": "started"
+        }
+      ]
+    },
+    "started": {
+      "actions": [
         "invite_actors"
       ],
       "transitions": [
@@ -287,9 +298,68 @@
     }
   },
   "actions": {
+    "start": {
+      "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#data",
+      "actor": "license_holder",
+      "responses": {
+        "ok": {
+          "title": "Started new supply chain",
+          "update": [
+            {
+              "select": "actors.egg_chickens",
+              "jmespath": "{ id: '5cd71225-ab88-4024-b9ce-bd65edb3ded6', info: { name: egg_chickens.name }, signkeys: { user: egg_chickens.public_key, system: egg_chickens.systemkey }, node: egg_chickens.node }"
+            },
+            {
+              "select": "actors.hatcher",
+              "jmespath": "{ id: '0af9f4f5-624b-437a-8f83-3ee11a12b80b', info: { name: hatcher.name }, signkeys: { user: hatcher.public_key, system: hatcher.systemkey }, node: hatcher.node }"
+            },
+            {
+              "select": "actors.eat_chickens",
+              "jmespath": "{ id: '1c8461cc-ad23-4ded-a638-18d2905d7130', info: { name: eat_chickens.name }, signkeys: { user: eat_chickens.public_key, system: eat_chickens.systemkey }, node: eat_chickens.node }"
+            },
+            {
+              "select": "actors.slaughterhouse",
+              "jmespath": "{ id: 'fe2cf649-0527-4d36-a735-f752bcbfe83e', info: { name: slaughterhouse.name }, signkeys: { user: slaughterhouse.public_key, system: slaughterhouse.systemkey }, node: slaughterhouse.node }"
+            },
+            {
+              "select": "actors.supermarket",
+              "jmespath": "{ id: '6b7f3fc5-c2af-4533-9b77-c831296d9639', info: { name: supermarket.name }, signkeys: { user: supermarket.public_key, system: supermarket.systemkey }, node: supermarket.node }"
+            },
+            {
+              "select": "actors.food_transporter_1",
+              "jmespath": "{ id: '871494fc-6158-4ccf-bc3f-0850532cb2f4', info: { name: food_transporter_1.name }, signkeys: { user: food_transporter_1.public_key, system: food_transporter_1.systemkey }, node: food_transporter_1.node }"
+            },
+            {
+              "select": "actors.food_transporter_2",
+              "jmespath": "{ id: 'c88d4951-bf9c-484d-95f2-c071996f0163', info: { name: food_transporter_2.name }, signkeys: { user: food_transporter_2.public_key, system: food_transporter_2.systemkey }, node: food_transporter_2.node }"
+            },
+            {
+              "select": "actors.egg_transporter",
+              "jmespath": "{ id: 'd62d2715-a3c7-4997-b195-364f8b0edf73', info: { name: egg_transporter.name }, signkeys: { user: egg_transporter.public_key, system: egg_transporter.systemkey }, node: egg_transporter.node }"
+            },
+            {
+              "select": "actors.chicken_transporter_1",
+              "jmespath": "{ id: '760c42a0-1730-4ac7-af2e-bc58902126a0', info: { name: chicken_transporter_1.name }, signkeys: { user: chicken_transporter_1.public_key, system: chicken_transporter_1.systemkey }, node: chicken_transporter_1.node }"
+            },
+            {
+              "select": "actors.chicken_transporter_2",
+              "jmespath": "{ id: 'bac8a445-3040-4ff5-8d69-c66df534a7d7', info: { name: chicken_transporter_2.name }, signkeys: { user: chicken_transporter_2.public_key, system: chicken_transporter_2.systemkey }, node: chicken_transporter_2.node }"
+            },
+            {
+              "select": "actors.meat_transporter_1",
+              "jmespath": "{ id: '4219e39c-9bbc-4ef4-b5a6-99696966acd8', info: { name: meat_transporter_1.name }, signkeys: { user: meat_transporter_1.public_key, system: meat_transporter_1.systemkey }, node: meat_transporter_1.node }"
+            },
+            {
+              "select": "actors.meat_transporter_2",
+              "jmespath": "{ id: '2e2fa6ae-e2eb-43f4-94ba-17196bf5c703' info: { name: meat_transporter_2.name }, signkeys: { user: meat_transporter_2.public_key, system: meat_transporter_2.systemkey }, node: meat_transporter_2.node }"
+            }
+          ]
+        }
+      }
+    },
     "invite_actors": {
       "$schema": "https://specs.livecontracts.io/v0.1.0/action/schema.json#event",
-      "actor": "inspector",
+      "actor": "nutreco",
       "body": [
         {
           "$schema": "https://specs.livecontracts.io/v0.1.0/identity/schema.json#",
