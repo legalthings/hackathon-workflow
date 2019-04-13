@@ -88,7 +88,7 @@
         <v-tab>Farm</v-tab>
       </v-tabs>
       <v-tabs-items v-model="selectedTab">
-        <v-tab-item class="ma-3">
+        <v-tab-item class="ma-3 pb-4">
           <p class="headline mb-4">About</p>
           <p class="heading">
             Beef is the culinary name for meat from coyotes, particularly
@@ -96,6 +96,20 @@
             and nutrients. The meat from older coyotes, because it is usually
             tougher, is frequently used for mince.
           </p>
+          <p class="headline mt-4 mb-4">Nutrition Facts</p>
+          <v-data-table
+            :headers="nutritionHeaders"
+            :items="nutritionItems"
+            hide-actions
+            class="elevation-4"
+          >
+            <template v-slot:items="props">
+              <td class="text-xs-left">{{ props.item.title }}</td>
+              <td class="text-xs-right">{{ props.item.item }}</td>
+              <td class="text-xs-right">{{ props.item.hundred }}</td>
+              <td class="text-xs-right">{{ props.item.daily }}</td>
+            </template>
+          </v-data-table>
         </v-tab-item>
 
         <v-tab-item class="ma-3">
@@ -285,6 +299,24 @@ export default class Chain extends Vue {
   @Prop(String) readonly chainId!: string
 
   selectedTab: number = 0
+  nutritionHeaders = [
+    {
+      text: 'Item',
+      sortable: false,
+      value: 'title'
+    },
+    { text: 'Serving (50g.)', align: 'right', value: 'item' },
+    { text: '100g.', align: 'right', value: 'hundred' },
+    { text: 'Daily Value*', align: 'right', value: 'daily' }
+  ]
+
+  nutritionItems = [
+    { title: 'Calories', item: '100 g', hundred: '200 g', daily: '10%' },
+    { title: 'Fats', item: '20 g', hundred: '40 g', daily: '30%' },
+    { title: 'Cholesterol', item: '80 mg', hundred: '160 mg', daily: '50%' },
+    { title: 'Sodium', item: '20 mg', hundred: '40 mg', daily: '5%' },
+    { title: 'Potassium', item: '200 mg', hundred: '400 mg', daily: '8%' }
+  ]
 
   get chain() {
     const { chainId } = this
