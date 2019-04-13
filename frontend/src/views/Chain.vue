@@ -115,6 +115,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Watch, Prop } from 'vue-property-decorator'
+// @ts-ignore
+import { LMap, LTileLayer, LMarker } from 'vue2-leaflet'
 
 @Component
 export default class Chain extends Vue {
