@@ -15,7 +15,7 @@
         xs12
         text-xs-center
         class="mx-4 py-5 mb-5"
-        style="margin-top: 10vh;"
+        style="margin-top: 5vh;"
       >
         <div v-if="!scanning">
           <a @click.prevent="scanning = true">
