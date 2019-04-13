@@ -127,7 +127,7 @@ export default class Home extends Vue {
 
 <style scoped>
 .main {
-  background-image: linear-gradient(-90deg, #7daef4 0%, #4776e6 100%);
+  background-image: linear-gradient(90deg, #7daef4 0%, #4776e6 100%);
 }
 
 .scan {
