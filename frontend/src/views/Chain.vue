@@ -1,13 +1,11 @@
 <template>
   <v-card class="mx-auto elevation-16" max-width="60rem">
     <v-card dark flat>
-      <v-btn absolute bottom color="primary" right fab>
-        <v-icon>description</v-icon>
-      </v-btn>
       <v-card-title class="pa-2 primary">
-        <v-btn icon>
+        <v-btn>
           <v-icon>mdi-menu</v-icon>
         </v-btn>
+
         <h3 class="title font-weight-light text-xs-center grow">
           Produce Overview
         </h3>
