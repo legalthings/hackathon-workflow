@@ -30,17 +30,18 @@
         </v-tab-item>
       </v-tabs-items>
 
-      <v-card-title primary-title>
-        <div>
-          <h4 class="font-weight-bold">#1283SJ2</h4>
-          <h3 class="headline mb-2">Greyhound Farm</h3>
-          <div>
-            Greyhound coyote farm specializes coyote meat and coyote meat only.
-            The meat is widely recognized and generally considered to be the
-            most tender meat in the entire world.
-          </div>
-        </div>
+      <v-card-title>
+        <h3 class="headline mb-2">Greyhound Farm</h3>
+
+        <v-spacer></v-spacer>
+        <h4 class="font-weight-bold">#1283SJ2</h4>
       </v-card-title>
+
+      <v-card-text>
+        Greyhound coyote farm specializes coyote meat and coyote meat only. The
+        meat is widely recognized and generally considered to be the most tender
+        meat in the entire world.
+      </v-card-text>
     </v-card>
 
     <v-card flat>
