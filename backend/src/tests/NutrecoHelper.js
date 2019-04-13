@@ -176,10 +176,8 @@ class NutrecoHelper {
 
   loadProcess(account, seed, process, nutrecoPublicKey) {
     const chainId = this.lto.createEventChainId(nutrecoPublicKey, seed);
-    const chain = new EventChain();
-    console.log(process);
+    const chain = new EventChain(chainId);
     const processId = chain.createProjectionId(process);
-    console.log(processId);
     
     const path = `/api/flow/processes/${processId}`;
     const method = 'get';
@@ -189,6 +187,7 @@ class NutrecoHelper {
 
   performDataAction(chain, account, process, action) {
     const processId = chain.createProjectionId(process);
+    console.log(processId);
     const response = {
       '$schema': 'https://specs.livecontracts.io/v0.1.0/response/schema.json#',
       process: {
@@ -204,6 +203,7 @@ class NutrecoHelper {
       key: action.response.key,
       data: action.data
     };
+    console.log(response);
 
     const event = new Event(response);
     event.addTo(chain).signWith(account);

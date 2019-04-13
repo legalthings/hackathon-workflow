@@ -164,7 +164,7 @@
 
           <v-card>
             <v-list>
-              <v-list-tile :href="'/license/' + chainId">
+              <v-list-tile :to="'/license/' + chainId">
                 <v-list-tile-content>
                   <v-list-tile-title>Better Life License</v-list-tile-title>
                 </v-list-tile-content>
@@ -174,7 +174,7 @@
                 </v-list-tile-action>
               </v-list-tile>
 
-              <v-list-tile :href="'/certificate/' + chainId">
+              <v-list-tile :to="'/certificate/' + chainId">
                 <v-list-tile-content>
                   <v-list-tile-title
                     >Global Animal Parnership Certificate</v-list-tile-title

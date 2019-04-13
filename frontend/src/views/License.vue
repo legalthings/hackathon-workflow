@@ -1,7 +1,7 @@
 <template>
   <v-card flat class="mx-auto elevation-16 main" max-width="60rem">
     <v-toolbar flat color="white">
-      <v-btn icon :href="'/chain/' + chainId">
+      <v-btn icon :to="'/chain/' + chainId">
         <v-icon>keyboard_arrow_left</v-icon>
       </v-btn>
       <v-spacer></v-spacer>
@@ -120,6 +120,10 @@ export default class License extends Vue {
 <style>
 .main {
   background-image: linear-gradient(-90deg, #7daef4 0%, #4776e6 100%);
+}
+
+.main > .v-card {
+  margin-bottom: 5px;
 }
 
 .tabs .v-window {
