@@ -1,8 +1,8 @@
 <template>
-  <v-card class="mx-auto" max-width="100%">
+  <v-card class="mx-auto elevation-16" max-width="60rem">
     <v-card dark flat>
       <v-btn absolute bottom color="primary" right fab>
-        <v-icon>md-plus</v-icon>
+        <v-icon>description</v-icon>
       </v-btn>
       <v-card-title class="pa-2 primary">
         <v-btn icon>
@@ -30,7 +30,9 @@
         <v-tabs v-model="tab" color="white" grow>
           <v-tabs-slider color="dark"></v-tabs-slider>
 
-          <v-tab v-for="n in 3" :key="n" ripple> Item {{ n }} </v-tab>
+          <v-tab>Overview</v-tab>
+          <v-tab>Journey</v-tab>
+          <v-tab>Farm</v-tab>
         </v-tabs>
       </template>
     </v-toolbar>
@@ -38,7 +40,7 @@
     <v-tabs-items v-model="tab">
       <v-tab-item v-for="n in 3" :key="n">
         <v-card flat>
-          <v-card-text>{{ text }}</v-card-text>
+          <v-card-text>text</v-card-text>
         </v-card>
       </v-tab-item>
     </v-tabs-items>
@@ -108,6 +110,20 @@
         </v-timeline-item>
       </v-timeline>
     </v-card-text>
+
+    <v-bottom-nav :value="true" absolute shift>
+      <v-btn dark>
+        <span>Menu</span>
+        <v-icon>menu</v-icon>
+      </v-btn>
+
+      <v-spacer></v-spacer>
+
+      <v-btn dark>
+        <span>Share</span>
+        <v-icon>share</v-icon>
+      </v-btn>
+    </v-bottom-nav>
   </v-card>
 </template>
 
@@ -120,10 +136,12 @@ export default class Chain extends Vue {
   @Prop(String) readonly chainId!: string
 
   get chain() {
-    return {
-      title: 'Chicken',
-      description: 'This is a chicken!'
+    const { chainId } = this
+    if (chainId && !this.$store.state.chains[chainId]) {
+      this.$store.dispatch('fetchChain', { chainId })
     }
+
+    return this.$store.state.chains[chainId]
   }
 }
 </script>
