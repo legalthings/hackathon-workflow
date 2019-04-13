@@ -15,11 +15,7 @@
     </v-toolbar>
 
     <v-card class="mx-3 my-5">
-      <v-img
-        src="https://www.agri-pulse.com/ext/resources/images/Agriculture-photos/Farmscapes/Farm1.jpg?1509734744"
-        aspect-ratio="1.75"
-      >
-      </v-img>
+      <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75"> </v-img>
 
       <v-card-title primary-title>
         <div>
