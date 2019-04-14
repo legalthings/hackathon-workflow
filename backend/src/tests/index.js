@@ -1,4 +1,5 @@
 'use-strict';
+const colors = require('colors');
 const qrcode = require('qrcode-terminal');
 const NutrecoHelper = require('./NutrecoHelper');
 
@@ -32,9 +33,9 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
   const process = 'main';
   let nextAction = {};
 
-  console.log('Delete previous chains and processes');
-  console.log(await nutrecoHelper.deleteProcess(nutrecoAccount, process, chainSeed, nutrecoAccount.getPublicSignKey()));
-  console.log(await nutrecoHelper.deleteEventChain(nutrecoAccount, chainSeed));
+  //console.log('Delete previous chains and processes');
+  await nutrecoHelper.deleteProcess(nutrecoAccount, process, chainSeed, nutrecoAccount.getPublicSignKey());
+  await nutrecoHelper.deleteEventChain(nutrecoAccount, chainSeed);
 
   actorData = {
     egg_chickens: {
@@ -111,6 +112,8 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     }
   };
 
+  console.info('Farm audited, process started'.blue);
+
   let chain = await nutrecoHelper.createSupplyChain(nutrecoAccount, chainSeed, systemKey, actorData, nodeAddress);
   let res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
   await timeout(500);
@@ -127,7 +130,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
 
-  console.info("Event added");
+  console.log("Invite parties to participate in the process.".blue);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -148,7 +151,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     }
   };
   
-  console.info("Event added");
+  console.info("Food supplier provides data about the food.".red);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -167,7 +170,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("Food left for the chicken coop.".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -186,7 +189,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("Food arrived at the chicken coop.".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -205,7 +208,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The chickens have layed their eggs.".red);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -224,7 +227,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The eggs left for the hachery".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -243,7 +246,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The eggs arrived at the hatchery".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -262,7 +265,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The eggs hatched.".red);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -281,7 +284,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("Food left for the chicken coop.".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -300,7 +303,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("Food arrives at the chicken coop.".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -319,7 +322,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The chicks left for the chicken coop.".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -338,7 +341,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The chicks arrived at the chicken coop.".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -357,7 +360,45 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The chickens are being fed.".red);
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "feed_chicken",
+    actor: {
+      key: 'eat_chickens',
+      id: eatChickenAccount.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("The chickens are being fed.".red);
+  
+  chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
+  chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
+  res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
+  await timeout(500);
+
+  nextAction = {
+    key: "feed_chicken",
+    actor: {
+      key: 'eat_chickens',
+      id: eatChickenAccount.id
+    },
+    response: {
+      key: "ok"
+    },
+    data: {}
+  };
+  
+  console.info("The chickens are being fed.".red);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -376,7 +417,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The chickens left for the slaughterhouse.".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -395,7 +436,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The chickens arrived at the slaughterhouse.".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -414,7 +455,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The chickens were slaughtered.".green);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -433,7 +474,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The chicken meat left for the supermarket storage.".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -452,7 +493,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The chicken meat arrived at the supermarket storage.".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -471,7 +512,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The chicken meat left for the supermarket.".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -490,7 +531,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
   
-  console.info("Event added");
+  console.info("The chicken meat arrived at the supermarket".yellow);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);

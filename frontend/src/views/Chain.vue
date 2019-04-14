@@ -58,7 +58,7 @@
           <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
 
           <v-card-title>
-            <h3 class="headline mb-2">Greyduck Farm</h3>
+            <h3 class="headline mb-2">Grey Duck Farm</h3>
             <v-spacer></v-spacer>
             <v-chip label>#1283SJ2</v-chip>
           </v-card-title>
@@ -78,7 +78,7 @@
           <v-img :src="require('../assets/farm.jpg')" aspect-ratio="1.75" />
 
           <v-card-title>
-            <h3 class="headline mb-2">Greyduck Farm</h3>
+            <h3 class="headline mb-2">Grey Duck Farm</h3>
             <v-spacer></v-spacer>
             <v-chip label>#1283SJ2</v-chip>
           </v-card-title>
@@ -133,6 +133,33 @@
               </td>
             </template>
           </v-data-table>
+
+          <p class="headline mt-5">Licenses &amp; Certificates</p>
+
+          <v-card>
+            <v-list three-line>
+              <v-list-tile :to="'/license/' + chainId">
+                <v-list-tile-content>
+                  <img
+                    width="150px"
+                    :src="require('../assets/better-life-2.png')"
+                    aspect-ratio="1.2"
+                    alt="Better Life License"
+                  />
+                </v-list-tile-content>
+
+                <v-list-tile-content>
+                  <v-list-tile-title
+                    ><p>Better Life License</p></v-list-tile-title
+                  >
+                </v-list-tile-content>
+
+                <v-list-tile-action>
+                  <v-icon>info</v-icon>
+                </v-list-tile-action>
+              </v-list-tile>
+            </v-list>
+          </v-card>
         </v-tab-item>
 
         <v-tab-item class="ma-3">
@@ -246,28 +273,6 @@
 
           <v-card>
             <v-list three-line>
-              <v-list-tile :to="'/license/' + chainId">
-                <v-list-tile-content>
-                  <img
-                    width="150px"
-                    :src="require('../assets/better-life-2.png')"
-                    aspect-ratio="1.2"
-                    alt="Better Life License"
-                  />
-                </v-list-tile-content>
-
-                <v-list-tile-content>
-                  <v-list-tile-title
-                    ><p>Better Life License</p></v-list-tile-title
-                  >
-                </v-list-tile-content>
-
-                <v-list-tile-action>
-                  <v-icon>info</v-icon>
-                </v-list-tile-action>
-              </v-list-tile>
-              <v-divider></v-divider>
-
               <v-list-tile :to="'/certificate/' + chainId">
                 <v-list-tile-content>
                   <img

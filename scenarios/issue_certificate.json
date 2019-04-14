@@ -50,7 +50,7 @@
     },
     "invited_actors": {
       "actions": [
-        "get_inspector_data"
+        "store_inspector_data"
       ],
       "transitions": [
         {
@@ -77,7 +77,7 @@
       "transitions": [
         {
           "action": "create_contract",
-          "transition": "contract_ready"
+          "transition": ":success"
         }
       ]
     },
