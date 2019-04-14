@@ -1,5 +1,6 @@
 'use-strict';
 const colors = require('colors');
+const figlet = require('figlet');
 const qrcode = require('qrcode-terminal');
 const NutrecoHelper = require('./NutrecoHelper');
 
@@ -11,6 +12,20 @@ const node1 = 'http://localhost:3000';
 const timeout = ms => new Promise(res => setTimeout(res, ms));
 
 (async() => {
+
+  figlet.text('FoodFlow!', {
+    font: 'Ghost',
+    horizontalLayout: 'default',
+    verticalLayout: 'default'
+  }, function(err, data) {
+    if (err) {
+      console.log('Something went wrong...');
+      console.dir(err);
+      return;
+    }
+    console.log(data);
+  });
+
   const nutrecoHelper = new NutrecoHelper(node1);
   const systemKey = await nutrecoHelper.loadSystemKey();
   const nodeAddress = await nutrecoHelper.loadNodeAddress();
