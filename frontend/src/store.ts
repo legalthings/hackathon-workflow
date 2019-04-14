@@ -27,16 +27,27 @@ export default new Vuex.Store<RootState>({
         title: chainBody.title
       }
 
-      state.chains[chainId] = chain
+      Vue.set(state.chains, chainId, chain)
     }
   },
   actions: {
-    async fetchChain({ state, commit }, { chainId }): Promise<null> {
+    async timeout(_context, tm): Promise<boolean> {
+      return new Promise((resolve, _reject) => {
+        setTimeout(() => {
+          resolve(true)
+        }, tm)
+      })
+    },
+
+    async fetchChain(context, { chainId }): Promise<null> {
+      const { state, dispatch, commit } = context
       if (state.requests[chainId]) {
         return null
       }
 
       commit('setRequest', { chainId, status: 'requestMade' })
+
+      await dispatch('timeout', 1500)
 
       // const url = `/api/v0/getChain/${chainId}`
       // const response = await fetch(url)
