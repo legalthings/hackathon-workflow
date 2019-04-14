@@ -118,9 +118,6 @@
           >
             <template v-slot:items="props">
               <td class="text-xs-left">{{ props.item.title }}</td>
-              <td class="text-xs-right">{{ props.item.item }}</td>
-              <td class="text-xs-right">{{ props.item.hundred }}</td>
-
               <td class="text-xs-right">
                 <v-progress-linear
                   color="success"
@@ -131,6 +128,8 @@
               <td class="text-xs-left">
                 {{ props.item.daily }}
               </td>
+              <td class="text-xs-right">{{ props.item.item }}</td>
+              <td class="text-xs-right">{{ props.item.hundred }}</td>
             </template>
           </v-data-table>
 
@@ -344,10 +343,10 @@ export default class Chain extends Vue {
       sortable: false,
       value: 'title'
     },
-    { text: 'Serving (50g.)', align: 'right', value: 'item' },
-    { text: '100g.', align: 'right', value: 'hundred' },
     { text: 'Daily Value*', align: 'right', value: 'daily' },
-    { text: '', align: 'right', value: 'daily' }
+    { text: '', align: 'right', value: 'daily' },
+    { text: 'Serving (50g.)', align: 'right', value: 'item' },
+    { text: '100g.', align: 'right', value: 'hundred' }
   ]
 
   nutritionItems = [
