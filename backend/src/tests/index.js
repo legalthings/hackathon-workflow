@@ -1,5 +1,6 @@
 'use-strict';
 const colors = require('colors');
+const figlet = require('figlet');
 const qrcode = require('qrcode-terminal');
 const NutrecoHelper = require('./NutrecoHelper');
 
@@ -11,6 +12,20 @@ const node1 = 'http://localhost:3000';
 const timeout = ms => new Promise(res => setTimeout(res, ms));
 
 (async() => {
+
+  figlet.text('FoodFlow!', {
+    font: 'Ghost',
+    horizontalLayout: 'default',
+    verticalLayout: 'default'
+  }, function(err, data) {
+    if (err) {
+      console.log('Something went wrong...');
+      console.dir(err);
+      return;
+    }
+    console.log(data);
+  });
+
   const nutrecoHelper = new NutrecoHelper(node1);
   const systemKey = await nutrecoHelper.loadSystemKey();
   const nodeAddress = await nutrecoHelper.loadNodeAddress();
@@ -112,7 +127,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     }
   };
 
-  console.info('Farm audited, process started'.blue);
+  console.info('Farm audited, process started'.cyan);
 
   let chain = await nutrecoHelper.createSupplyChain(nutrecoAccount, chainSeed, systemKey, actorData, nodeAddress);
   let res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
@@ -130,7 +145,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
 
-  console.log("Invite parties to participate in the process.".blue);
+  console.log("Invite parties to participate in the process.".cyan);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
@@ -538,11 +553,16 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
   res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
   await timeout(500);
 
+  console.log('\n')
 
   let appUrl = `https://ddfb878d.ngrok.io/chain/${chain.id}/`;
   let backendUrl = `http://localhost:9000/api/chains/${chain.id}/`;
-  console.info(`Backend API url: ${backendUrl}`)
-  console.info(`Scan the QR to go to the app url: ${appUrl}`)
+  console.info(`Backend API url: ${backendUrl}`);
+  console.log('');
+  console.info('Scan the QR to go to the app url:');
+  console.log('');
+  console.log(`${appUrl}`.green);
+  console.log('');
   qrcode.generate(appUrl, {small: true});
   // console.log(res);
   //await(timeout(500));
