@@ -112,7 +112,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     }
   };
 
-  console.info('Farm audited, process started'.blue);
+  console.info('Farm audited, process started'.cyan);
 
   let chain = await nutrecoHelper.createSupplyChain(nutrecoAccount, chainSeed, systemKey, actorData, nodeAddress);
   let res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
@@ -130,7 +130,7 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
     data: {}
   };
 
-  console.log("Invite parties to participate in the process.".blue);
+  console.log("Invite parties to participate in the process.".cyan);
   
   chain = await nutrecoHelper.loadChain(nutrecoAccount, chainSeed, nutrecoAccount.getPublicSignKey());
   chain = await nutrecoHelper.performDataAction(chain, nutrecoAccount, process, nextAction);
