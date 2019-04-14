@@ -538,11 +538,16 @@ const timeout = ms => new Promise(res => setTimeout(res, ms));
   res = await nutrecoHelper.sendChain(nutrecoAccount, chain);
   await timeout(500);
 
+  console.log('\n')
 
   let appUrl = `https://ddfb878d.ngrok.io/chain/${chain.id}/`;
   let backendUrl = `http://localhost:9000/api/chains/${chain.id}/`;
-  console.info(`Backend API url: ${backendUrl}`)
-  console.info(`Scan the QR to go to the app url: ${appUrl}`)
+  console.info(`Backend API url: ${backendUrl}`);
+  console.log('');
+  console.info('Scan the QR to go to the app url:');
+  console.log('');
+  console.log(`${appUrl}`.green);
+  console.log('');
   qrcode.generate(appUrl, {small: true});
   // console.log(res);
   //await(timeout(500));
