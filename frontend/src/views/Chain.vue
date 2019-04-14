@@ -1,6 +1,6 @@
 <template>
   <v-card flat class="mx-auto elevation-16 main" max-width="60rem">
-    <v-toolbar flat color="white">
+    <v-toolbar v-if="!!chain" flat color="white">
       <v-btn icon to="/">
         <v-icon>camera</v-icon>
       </v-btn>
@@ -14,7 +14,20 @@
       </v-btn>
     </v-toolbar>
 
-    <v-tabs-items v-model="selectedTab">
+    <v-dialog :value="!chain" persistent width="40rem">
+      <v-card color="primary" dark>
+        <v-card-text class="title">
+          Please stand by
+          <v-progress-linear
+            indeterminate
+            color="white"
+            class="mb-0"
+          ></v-progress-linear>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
+
+    <v-tabs-items v-if="!!chain" v-model="selectedTab">
       <v-tab-item>
         <v-card class="ma-3">
           <v-img
@@ -81,7 +94,7 @@
       </v-tab-item>
     </v-tabs-items>
 
-    <v-card flat>
+    <v-card v-if="!!chain" flat>
       <v-tabs grow class="tabs" v-model="selectedTab">
         <v-tab>Produce</v-tab>
         <v-tab>Journey</v-tab>
